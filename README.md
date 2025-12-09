@@ -1,27 +1,127 @@
-# AngularPlayground
+# Angular Playground – Meik Behr
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+## **Project Overview**
 
-## Development server
+This repository contains my personal **Angular 18 playground**, used for learning, experimenting, and deeply understanding Angular features.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The purpose of this project is **educational only**. It is not related to the Developer Akademie (DA) and represents my own structured learning environment.
 
-## Code scaffolding
+All documentation inside the project (under `/docs`) is written in **German**, because I learn and understand technical concepts more clearly in my native language.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The README is intentionally **English**, to keep the project understandable for international viewers.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## **Purpose of This Repository**
 
-## Running unit tests
+* Build a clean, modular Angular project structure.
+* Recreate and extend exercises from Udemy and personal study.
+* Explore Angular concepts step by step:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  * Standalone Components
+  * Routing
+  * Bindings
+  * Directives
+  * Control Flow
+  * Component communication
+  * Forms
+  * Services & Dependency Injection
+  * (Later) Signals, Guards, Feature modules
+* Serve as a **reference and documentation hub** for future Angular projects.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## **Project Structure**
 
-## Further help
+```
+angular-playground/
+ ├─ src/
+ │   ├─ app/
+ │   │   ├─ shared/        # Header, Footer, reusable layout components
+ │   │   ├─ pages/         # Individual pages (Fundamentals, Bindings, Directives ...)
+ │   │   ├─ app.routes.ts  # Routing configuration
+ │   │   └─ app.config.ts  # Angular application configuration
+ │   └─ index.html
+ ├─ docs/                  # Project documentation (.md files in German)
+ │   └─ how_to_create_components_and_register_them.md
+ ├─ README.md              # You are here
+ └─ angular.json
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## **Live Demo**
+
+This project is not intended for public deployment, since it is a learning playground.
+Run it locally via `ng serve`.
+
+---
+
+## **Key Features**
+
+* Angular 18 with Standalone Components
+* Clean routing architecture
+* Layout components (header, footer)
+* Multiple topic-based pages under `/pages`
+* Educational documentation under `/docs`
+* Focus on clarity, maintainability, and understanding
+
+---
+
+## **How to Run Locally**
+
+1. **Clone repository**
+
+```
+git clone git@github.com:MeikBehr/angular-playground.git
+```
+
+2. **Install dependencies**
+
+```
+npm install
+```
+
+3. **Start development server**
+
+```
+ng serve
+```
+
+Then open:
+
+```
+http://localhost:4200/
+```
+
+---
+
+## **Notes About Language**
+
+* **README.md** → English
+* **Documentation (/docs)** → German
+
+This is intentional and reflects my learning preference.
+
+---
+
+## **Future Plans**
+
+* Add more topic pages (bindings, directives, control flow, forms ...)
+* Expand `/docs` with step‑by‑step learning notes
+* Build mini-demo features for each Angular concept
+* Evaluate additional architectural patterns
+
+---
+
+## **Credits**
+
+Created by **Meik Behr** (2025) as part of personal study and professional development.
+
+If you find this repository and want to give feedback or suggestions, feel free to open an issue.
+
+---
+
+## License
+This project is licensed under the **MIT License**.  
+See the [LICENSE](./LICENSE) file for details.
