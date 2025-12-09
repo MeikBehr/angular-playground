@@ -5,7 +5,40 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    height: $header-height;
     background-color: $color-bg;
     z-index: 0;
     overflow-y: hidden;
+    display: flex; 
+    justify-content: center;
+}
+
+.name {
+  z-index: 1201;
+  position: absolute;
+  top: 6px;
+  left: 16px;
+}
+
+.logoWrap { 
+  display: inline-block; 
+  line-height: 0;
+}
+
+.logo { 
+  height: 40px; 
+  width: auto; 
+  display: block; 
+  pointer-events: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: -1px;
 }
