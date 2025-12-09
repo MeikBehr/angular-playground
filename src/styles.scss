@@ -36,6 +36,12 @@ body {
   color: $color-text;
   background: $color-bg;
   direction: ltr;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-y: auto;
+}
+
+html, body, app-root {
+    height: 100%;
 }
 
 .container {

@@ -3,13 +3,20 @@
 
 
 /* Primary Colors */
-$color-text: #ffffff;
-$color-secondary: #9747FF;
+$color-text: #000000;
 $color-primary: #70E61C;
-$color-bg: #141D2F;
-
+$color-secondary: #9747FF;
+$color-bg: #F5F5F5;
+$color-sections: #E0E0E0;
+$color-link: #B0B0B0;
+$color-link-hover-bg: #2c323a;
+$color-border: #343a40;
+$color-surface-alt: #303030;
 
 /* Container */
 $container-max: 1440px !default;
+$border-radius: 6px;
 $header-height: 100px;
 $footer-height: 100px;
+
+
