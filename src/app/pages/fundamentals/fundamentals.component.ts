@@ -9,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class FundamentalsComponent {
 
+  // Interpolation
+  myText = 'Mich kannst Du im fundamentals.component.ts finden!';
+  concat = ' verknüpft worden!';
+  interpolationIsActive = true;
 }

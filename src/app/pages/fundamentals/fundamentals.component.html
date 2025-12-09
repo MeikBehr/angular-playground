@@ -16,7 +16,16 @@
 
             <section id="interpolation">
                 <h2>Interpolation</h2>
-                <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga eaque distinctio soluta, ab iusto esse quos molestiae deleniti quo nobis omnis dolor ipsum ut deserunt minus at magni necessitatibus.</article>
+                <article>
+                    <p>Mit &#123; &#123; Variable &#125; &#125; kannst du Werte aus der Component-Klasse direkt ins Template einsetzen. Neben Variablen lassen sich auch einfache Ausdrücke, String-Verknüpfungen und Ternary-Operatoren nutzen:</p>
+                    <ul>
+                        <li>Variablen ausgeben: <code>{{ myText }}</code></li>
+                        <li>Ausdrücke auswerten: <code>{{ 5 + 5 }}</code></li>
+                        <li>Strings konkatenieren: <code>{{ "Ich bin " + concat }}</code></li>
+                        <li>Ternary-Operator nutzen: <code>{{ interpolationIsActive ? 'Aktiv' : 'Inaktiv'}}</code></li>
+                        <li>Ist der Wert (Value) <code>undefined</code> oder <code>null</code>, dann ist der String leer!</li>
+                    </ul>
+                </article>
             </section>
 
             <section id="property-binding">
