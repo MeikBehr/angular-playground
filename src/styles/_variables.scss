@@ -1,0 +1,15 @@
+@use "sass:color";
+@use 'sass:math';
+
+
+/* Primary Colors */
+$color-text: #ffffff;
+$color-secondary: #9747FF;
+$color-primary: #70E61C;
+$color-bg: #141D2F;
+
+
+/* Container */
+$container-max: 1440px !default;
+$header-height: 100px;
+$footer-height: 100px;
