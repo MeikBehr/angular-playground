@@ -77,13 +77,22 @@
                         <li><code>(dragover)="incr()"</code> zum Beispiel: <button (dragover)="incr()" draggable="true">Interaktionen: {{ counter }}x .</button></li>
                         <li><code>(click)="reset()"</code> zum Beispiel: <button (click)="reset()">Reset Counter</button></li>
                     </ul>
-
+                    <p><i>Anmerkung: Es kann bei <code>(click), (keydown), (input)</code> ein <code>$event</code> übergeben und im TS genutzt werden. Damit kann man z.B. Mauskoordinaten oder welche Taste gedrückt wurde analysiert werden.</i></p>
                 </article>
             </section>
 
             <section id="two-way-binding">
                 <h2>Two-Way Binding</h2>
-                <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga eaque distinctio soluta, ab iusto esse quos molestiae deleniti quo nobis omnis dolor ipsum ut deserunt minus at magni necessitatibus.</article>
+                <article>
+                    <p>Das ist die Besonderheit bei Angular. Two-Way Binding verknüpft Template und Component in beide Richtungen: Änderungen im Input aktualisieren die Variable, und Änderungen der Variable erscheinen sofort wieder im Template. Mit <code>ngModel</code> funktioniert das standardmäßig für <code>input, select und textarea</code>. Man muss zur Nutzung das <code>FormsModule</code> im TS importieren (für ngModel).</p>
+                    <p>Dafür benutzt man "Banana in the box": <code>[()]</code>, was dann hier zu <code>[(ngModel)]="staticInput"</code> führt.</p>
+
+                    <div class="binding-container">
+                        <div>Eingabe: <input type="text" [(ngModel)]="staticInput"></div>
+                        <div>Ausgabe: {{ staticInput }}</div>
+                    </div>
+
+                </article>
             </section>
 
             <section id="assignments">
