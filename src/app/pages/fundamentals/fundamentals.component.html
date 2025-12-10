@@ -97,7 +97,78 @@
 
             <section id="assignments">
                 <h2>Assignments</h2>
-                <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga eaque distinctio soluta, ab iusto esse quos molestiae deleniti quo nobis omnis dolor ipsum ut deserunt minus at magni necessitatibus.</article>
+                <article>
+                    <h3>Mini Shop Calculator</h3>
+
+
+                    <table>
+                        <tr>
+                            <th>Verkäufer</th>
+                            <td><input type="text" [value]="salesPerson"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Produktname</th>
+                            <td>{{ prodName }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Stückzahl</th>
+                            <td>{{ pieces }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Einzelpreis</th>
+                            <td>{{ priceSingle }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Produkt:</th>
+                            <td>{{ prodName }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Menge:</th>
+                            <td>{{ pieces }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Einzelpreis:</th>
+                            <td>{{ priceSingle }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Zwischensumme:</th>
+                            <td>{{ sumWithout }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Rabatt:</th>
+                            <td>{{ discount }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Gesamtpreis:</th>
+                            <td>{{ sumTotal }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Wurde verkauft von:</th>
+                            <td>{{ salesPerson }}</td>
+                        </tr>
+                    </table>
+
+
+                    <table>
+                        <tr>
+                            <td><button>Rabatt Ja/Nein</button></td>
+                            <td><button>Banane</button></td>
+                            <td><button>Orange</button></td>
+                            <td><button>Apfel</button></td>
+                        </tr>
+                    </table>
+
+                </article>
             </section>
 
 

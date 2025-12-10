@@ -31,4 +31,14 @@ export class FundamentalsComponent {
   // two-way-binding
   staticInput: string = 'Bitte Text eingeben!';
 
+  // assignments
+
+  salesPerson: string = 'Verkäufername';
+  prodName: string = 'Banana';
+  pieces:number = 12;
+  priceSingle:number = 12.50;
+  sumWithout: number = 0;
+  sumTotal:number = 0;
+  discount:number = 0;
+
 }
