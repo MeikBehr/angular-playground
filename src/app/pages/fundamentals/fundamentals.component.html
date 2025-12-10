@@ -30,7 +30,36 @@
 
             <section id="property-binding">
                 <h2>Property Binding</h2>
-                <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga eaque distinctio soluta, ab iusto esse quos molestiae deleniti quo nobis omnis dolor ipsum ut deserunt minus at magni necessitatibus.</article>
+                <article>
+                    <p>
+                        Hiermit kann man in <code>[ ]</code> befindlichen Zielen, wie <code>[class]</code> oder <code>[id]</code> oder <code>[src]</code> usw. einen Wert zuweisen.
+                    </p>
+                    <ul>
+                        <li>
+                            <p>Interpolation : Hier wird durch die Zuweisung <code>disabled="&#123; &#123;isDisabled &#125; &#125;"</code> das Element disabled, obwohl <code>isDisabled = false</code> ist, denn <code>isDisabled</code> wird bei Interpolation immer als <strong>String</strong> behandelt!</p>
+                            <p><i>Anmerkung: Durch Konvertieren von "false" in einen String nimmt HTML <code>isDisabled</code> als <code>true</code>an.</i></p>
+                            <p class="examples">
+                                <input type="text" value="{{ inputVal }}" disabled="{{ isDisabled }}">
+                            </p>
+                            <br><br>
+                        </li>
+                        <li>
+                            <p>Property Binding : Hier wird durch die Zuweisung <code>[disabled]="isDisabled"</code> das Element nicht disabled, sondern disabled auf den <strong>Wert</strong> von <code>isDisabled</code> gesetzt. Hier <code>false</code>.</p>
+                            <p>Das kann man sehr gut einsetzen, um die Eigenschaften von HTML-Elementen dynamisch und programmgesteuert steuern zu können. Zum Beispiel um...</p>
+                            <ul>
+                                <li>... die Quelle eines Bildes dynamisch festzulegen : <code>&#60;img [src]="userProfileUrl"&#62;</code></li>
+                                <li>... einen Button zu toggeln : <code>&#60;button [disabled]="!isFormValid"&#62;</code></li>
+                                <li>... CSS Klassen und Stile dynamisch hinzuzufügen oder zu entfernen : <code>&#60;div [class.active]="isItemSelected"&#62;</code></li>
+                                <li>... das Attribute eines Elements zu ändern : <code>&#60;button [attr.aria-label]="ariaLabelText"&#62;</code></li>
+                            </ul>
+                            <p class="examples">
+                                <input type="text" [value]="inputVal" [disabled]="isDisabled">
+                            </p>
+                            <br>
+                            <p><i>Anmerkung: Es können mehrere gleichzeitig angewendet werden!</i></p>
+                        </li>
+                    </ul>
+                </article>
             </section>
 
             <section id="event-binding">

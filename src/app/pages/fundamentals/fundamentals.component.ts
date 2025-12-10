@@ -10,7 +10,11 @@ import { Component } from '@angular/core';
 export class FundamentalsComponent {
 
   // Interpolation
-  myText = 'Mich kannst Du im fundamentals.component.ts finden!';
-  concat = ' verknüpft worden!';
-  interpolationIsActive = true;
+  myText: string = 'Mich kannst Du im fundamentals.component.ts finden!';
+  concat: string = ' verknüpft worden!';
+  interpolationIsActive: boolean = true;
+
+  // property binding
+  inputVal: string = 'Name';
+  isDisabled: boolean = false;
 }
