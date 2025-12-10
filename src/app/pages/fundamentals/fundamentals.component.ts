@@ -17,4 +17,14 @@ export class FundamentalsComponent {
   // property binding
   inputVal: string = 'Name';
   isDisabled: boolean = false;
+
+  // event binding
+  counter: number = 0;
+  incr() {
+    this.counter++
+  }
+  reset() {
+    this.counter = 0;
+  }
+
 }

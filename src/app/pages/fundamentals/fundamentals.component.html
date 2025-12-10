@@ -64,7 +64,21 @@
 
             <section id="event-binding">
                 <h2>Event Binding</h2>
-                <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga eaque distinctio soluta, ab iusto esse quos molestiae deleniti quo nobis omnis dolor ipsum ut deserunt minus at magni necessitatibus.</article>
+                <article>
+                    <p>Hiermit kann ich einem HTML Element sagen, was passieren soll, wenn eine bestimmte Aktion durchgeführt wird. Zum Beispiel ein Mausklick, der eine Funktion aufruft.</p>
+                    <ul>
+                        <li><code>(click)="incr()"</code> zum Beispiel: <button (click)="incr()">Interaktionen: {{ counter }}x .</button></li>
+                        <li><code>(dblclick)="incr()"</code> zum Beispiel: <button (dblclick)="incr()">Interaktionen: {{ counter }}x .</button></li>
+                        <li><code>(mouseover)="incr()"</code> zum Beispiel: <button (mouseover)="incr()">Interaktionen: {{ counter }}x .</button></li>
+                        <li><code>(mouseleave)="incr()"</code> zum Beispiel: <button (mouseleave)="incr()">Interaktionen: {{ counter }}x .</button></li>
+                        <li><code>(mousedown)="incr()"</code> zum Beispiel: <button (mousedown)="incr()">Interaktionen: {{ counter }}x .</button></li>
+                        <li><code>(mouseup)="incr()"</code> zum Beispiel: <button (mouseup)="incr()">Interaktionen: {{ counter }}x .</button></li>
+                        <li><code>(drag)="incr()"</code> zum Beispiel: <button (drag)="incr()" draggable="true">Interaktionen: {{ counter }}x geklickt.</button></li>
+                        <li><code>(dragover)="incr()"</code> zum Beispiel: <button (dragover)="incr()" draggable="true">Interaktionen: {{ counter }}x .</button></li>
+                        <li><code>(click)="reset()"</code> zum Beispiel: <button (click)="reset()">Reset Counter</button></li>
+                    </ul>
+
+                </article>
             </section>
 
             <section id="two-way-binding">
