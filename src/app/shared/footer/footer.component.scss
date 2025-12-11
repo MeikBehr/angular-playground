@@ -69,4 +69,11 @@ footer {
     height: 24px; 
     display:block;
     filter: invert(1) brightness(0.2);
+    transition: background 125ms ease-in-out;
+
+    &:hover {
+      transition: background 225ms ease-in-out;
+      filter: invert(0) brightness(1);
+      background: $color-secondary;
+    }
 }
