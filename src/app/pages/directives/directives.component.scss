@@ -96,12 +96,37 @@ ul {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
 }
 
-#ngif .btn {
+#ngif .btn,
+#ngfor .btn {
     max-width: 200px;
+}
+
+#ngfor table {
+    & tr {
+        text-align: center;
+    }
+
+    & td {
+        padding: 4px 8px;
+    }
 }
 
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 1px, rgba(0, 0, 0, 0.23) 2px 2px 2px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.showCode {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: -12px;
+    padding-left: 32px;
 }
 
 .circle {

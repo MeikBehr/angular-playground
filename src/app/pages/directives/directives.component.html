@@ -31,8 +31,8 @@
                 <article>
                     <p>Diese Direktive verwendet man, um Elemente wirklich aus dem DOM zu entfernen oder wieder hinzuzufügen. Im Gegensatz zu CSS (z. B. <code>display:none</code>) wird das Element nicht nur ausgeblendet, sondern komplett entfernt. Zur Nutzung muss das CommonModule importiert werden. Da das Element aus dem DOM entfernt wird, kann es beim Ein- und Ausblenden zu sichtbaren Layout-Sprüngen kommen, wenn man keine eigenen Animationen verwendet</p>
                     <div class="assignment-container">
-                        <button class="btn" (click)="toggleDisplay()">Ein-/Ausblenden</button>
-                        <div class="circle" *ngIf="display"></div>
+                        <button class="btn" (click)="toggleDisplayNgif()">Ein-/Ausblenden</button>
+                        <div class="circle" *ngIf="displayNgIf"></div>
                     </div>
                 </article>
             </section>
@@ -40,9 +40,38 @@
             <section id="ngfor">
                 <h2>*ngFor</h2>
                 <article>
-                    <p>50 Structural Directives (*ngFor)</p>
-                    <p>51 Assignment – Displaying list items on button click using *ngIf and *ngFor</p>
-                    <p>kurze Beschreibung: Liste wiederholen, ein Beispiel (z. B. Liste von Namen, Farben, Produkten), optional: index-Variable erwähnen</p>
+                    <p><code>*ngFor</code> ist eine Struktur-Direktive, die es ermöglicht, einen Codeblock (wie eine Liste oder eine Kartenansicht) für jedes Element in einer Daten-Collection (nicht nur Array, sondern jedwede iterable (durchlaufbare) Datenstrukturen) zu wiederholen. Sie steuert dynamisch, welche HTML-Elemente in der DOM-Struktur erstellt und dargestellt werden.</p>
+                    <div class="assignment-container">
+                        <div class="flex-row">
+                            <table>
+                                <tr>
+                                    <th>Nummer</th>
+                                    <th>KI / LLM</th>
+                                    <th>Anbieter</th>
+                                </tr>
+                                <tr *ngFor="let entry of ngForObject">
+                                   <td>{{ entry.id}}</td>
+                                   <td>{{ entry.name}}</td>
+                                   <td>{{ entry.developer}}</td>
+                                </tr>
+                            </table>
+                            <div class="showCode">
+                                <pre [innerText]="codeExample"></pre>
+                            </div>
+                        </div>
+
+                        <div class="flex-row">
+                            <div>
+                                <span *ngFor="let char of ('Angular'.split(''))">
+                                {{ char }} -
+                                </span>
+                            </div>
+                            <div class="showCode">
+                                <pre [innerText]="codeExampleString"></pre>
+                            </div>
+                        </div>
+
+                    </div>
                 </article>
             </section>
 
