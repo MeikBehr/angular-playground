@@ -4,7 +4,7 @@
         <a href="directives/#ngif">*ngIf</a>
         <a href="directives/#ngfor">*ngFor</a>
         <a href="directives/#atFor">&#64;For</a>
-        <a href="directives/#ngswitch">*ngSwitch</a>
+        <a href="directives/#switch">*ngSwitch</a>
         <a href="directives/#ngclass">ngClass</a>
         <a href="directives/#ngstyle">ngStyle</a>
         <a href="directives/#atIfElse">&#64;if / &#64;else</a>
@@ -16,13 +16,24 @@
         <main class="content">
 
             <h1>Directives</h1>
+            <p>Directives (Anweisungen) sind ein Kernfeature von Angular. Sie sind Klassen, die Angular im Template verwendet, um das Verhalten oder die Struktur von DOM-Elementen, Komponenten und anderen Direktiven zu manipulieren.</p>
+            <p>Es gibt drei Hauptkategorien von Directives in Angular:</p>
+            <ul>
+                <li><strong>Structural Directives (Struktur-Direktiven)</strong>: Diese verändern das Layout der DOM (Document Object Model), indem sie DOM-Elemente hinzufügen, entfernen oder manipulieren. Beispiele: <code>*ngIf</code>, <code>*ngFor</code>.</li>
+                <li><strong>Attribute Directives (Attribut-Direktiven)</strong>: Diese verändern das Aussehen oder das Verhalten eines existierenden Elements, einer Komponente oder einer anderen Direktive. Sie verändern nicht die DOM-Struktur. Beispiele: <code>NgClass</code>, <code>NgStyle</code>.</li>
+                <li><strong>Component Directives (Komponenten-Direktiven)</strong>: Dies sind Directives mit einem eigenen Template. Da jede Angular-Komponente technisch gesehen eine Directive ist, ist dies die dritte Kategorie. Sie sind für das Rendering, das Verhalten und die Kapselung der Ansicht (View) zuständig.</li>
+            </ul>
+            <p>In den meisten Projekten arbeiten wir ständig mit Components plus ein paar zentralen Structural/Attribute Directives – deshalb lohnt sich hier ein solides Verständnis.</p>
+            <br>
 
             <section id="ngif">
-                <h2>ngif</h2>
+                <h2>*ngif</h2>
                 <article>
-                    <p>47 Structural Directives (*ngIf)</p>
-                    <p>48 Assignment – Implementing show & hide functionality with *ngIf</p>
-                    <p>kurze Erklärung, wozu *ngIf dient, ein einzelnes Beispiel (z. B. Element ein-/ausblenden), optional zweites Beispiel (IF + ELSE-Fall)</p>
+                    <p>Diese Direktive verwendet man, um Elemente wirklich aus dem DOM zu entfernen oder wieder hinzuzufügen. Im Gegensatz zu CSS (z. B. <code>display:none</code>) wird das Element nicht nur ausgeblendet, sondern komplett entfernt. Zur Nutzung muss das CommonModule importiert werden. Da das Element aus dem DOM entfernt wird, kann es beim Ein- und Ausblenden zu sichtbaren Layout-Sprüngen kommen, wenn man keine eigenen Animationen verwendet</p>
+                    <div class="assignment-container">
+                        <button class="btn" (click)="toggleDisplay()">Ein-/Ausblenden</button>
+                        <div class="circle" *ngIf="display"></div>
+                    </div>
                 </article>
             </section>
 
@@ -43,7 +54,7 @@
                 </article>
             </section>
 
-            <section id="ngSwitch">
+            <section id="switch">
                 <h2>*ngSwitch</h2>
                 <article>
                     <p>53 Structural Directives (*ngSwitch)</p>

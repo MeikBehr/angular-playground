@@ -1,7 +1,7 @@
 @use '../../../styles/variables' as *;
 
 section {
-  scroll-margin-top: 60px;
+  scroll-margin-top: 50px;
 }
 
 .directives {
@@ -79,6 +79,36 @@ ul {
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 32px;
+}
+
+.assignment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 12px;
+}
+.btn {
+    padding: 6px 12px;
+    border-radius: 15px;
+    background-color: $color-bg;
+    border: none;
+    transition: background 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+}
+
+#ngif .btn {
+    max-width: 200px;
+}
+
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 1px, rgba(0, 0, 0, 0.23) 2px 2px 2px;
+}
+
+.circle {
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: green;
 }
 
 @media (max-width: 1440px) {
