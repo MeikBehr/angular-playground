@@ -1,5 +1,21 @@
 @use '../../../styles/variables' as *;
 
+section {
+  scroll-margin-top: 60px;
+}
+
+#interpolation {
+  scroll-margin-top: 60px;
+}
+
+#property-binding {
+  scroll-margin-top: 50px;
+}
+
+#event-binding {
+  scroll-margin-top: 0px;
+}
+
 .fundamentals {
     background-color: $color-bg;
     display: flex;
