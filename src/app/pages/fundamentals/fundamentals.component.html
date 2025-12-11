@@ -104,7 +104,7 @@
                     <table>
                         <tr>
                             <th>Verkäufer</th>
-                            <td><input type="text" [value]="salesPerson"></td>
+                            <td><input type="text" [(ngModel)]="salesPerson"></td>
                         </tr>
 
                         <tr>
@@ -123,18 +123,8 @@
                         </tr>
 
                         <tr>
-                            <th>Produkt:</th>
-                            <td>{{ prodName }}</td>
-                        </tr>
-
-                        <tr>
                             <th>Menge:</th>
                             <td>{{ pieces }}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Einzelpreis:</th>
-                            <td>{{ priceSingle }}</td>
                         </tr>
 
                         <tr>
@@ -144,7 +134,7 @@
 
                         <tr>
                             <th>Rabatt:</th>
-                            <td>{{ discount }}</td>
+                            <td>{{ discount }}%</td>
                         </tr>
 
                         <tr>
@@ -161,16 +151,15 @@
 
                     <table>
                         <tr>
-                            <td><button>Rabatt Ja/Nein</button></td>
-                            <td><button>Banane</button></td>
-                            <td><button>Orange</button></td>
-                            <td><button>Apfel</button></td>
+                            <td><button id="discount" (click)="toggleDiscount()" [ngClass]="isDiscount? 'isActiv' : ''">Rabatt Ja/Nein</button></td>
+                            <td><button id="banana" (click)="activateButton('banane')" [ngClass]="this.fruits.banane.isActive ? 'isActiv' : ''">Banane</button>
+                            <td><button id="orange" (click)="activateButton('orange')" [ngClass]="this.fruits.orange.isActive ? 'isActiv' : ''">Orange</button></td>
+                            <td><button id="apple" (click)="activateButton('apple')" [ngClass]="this.fruits.apple.isActive ? 'isActiv' : ''">Apfel</button></td>
                         </tr>
                     </table>
 
                 </article>
             </section>
-
 
         </main>
 
