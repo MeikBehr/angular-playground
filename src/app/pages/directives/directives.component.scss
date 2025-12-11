@@ -1,0 +1,89 @@
+@use '../../../styles/variables' as *;
+
+section {
+  scroll-margin-top: 60px;
+}
+
+.directives {
+    background-color: $color-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: $color-text;
+    position: relative;
+    z-index: 1;
+    min-height: calc(100dvh - $footer-height);
+}
+
+.directives-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.side-nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    background-color: $color-bg;
+    z-index: 3;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+
+    a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        &:first-child {
+            padding-left: 10px; 
+        }
+
+        &:last-child {
+            padding-right: 10px;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+main {
+    padding-top: 36px;
+    padding-bottom: 36px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content section {
+    width: 100%;
+    padding: 16px 16px 16px 16px;
+    background-color: $color-sections;
+    border-radius: $border-radius;
+    box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+}
+
+ul {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 32px;
+}
+
+@media (max-width: 1440px) {
+    main {
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+}
