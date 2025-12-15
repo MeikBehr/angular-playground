@@ -79,6 +79,7 @@ export class DirectivesComponent {
     </select>
     <div [ngSwitch]="choosenOption">
       <h4>Ergebnis der Auswertung</h4>
+      <p *ngSwitchDefault>Bitte wählen Sie ein Modell aus.</p>
       <p *ngSwitchCase="'ChatGPT'">GPT ist der Marktführer für die Code-Generierung.</p>
       <p *ngSwitchCase="'Gemini'">Gemini ist stark in der logischen Analyse und TS-Code.</p>
       <p *ngSwitchCase="'Claude'">Claude kann große Dateikontexte verarbeiten.</p>
