@@ -2,12 +2,13 @@
 
     <aside class="side-nav" role="navigation">
         <a href="directives/#ngif">*ngIf</a>
+        <a href="directives/#atIfElse">&#64;if / &#64;else</a>
         <a href="directives/#ngfor">*ngFor</a>
         <a href="directives/#atFor">&#64;For</a>
         <a href="directives/#switch">*ngSwitch</a>
+        <a href="directives/#atSwitch">&#64;Switch</a>
         <a href="directives/#ngclass">ngClass</a>
         <a href="directives/#ngstyle">ngStyle</a>
-        <a href="directives/#atIfElse">&#64;if / &#64;else</a>
         <a href="directives/#assignments">Assignments</a>
     </aside>
 
@@ -27,15 +28,32 @@
             <br>
 
             <section id="ngif">
-                <h2>*ngif</h2>
+                <h2>*ngIf</h2>
                 <article>
                     <p>Diese Direktive verwendet man, um Elemente wirklich aus dem DOM zu entfernen oder wieder hinzuzufügen. Im Gegensatz zu CSS (z. B. <code>display:none</code>) wird das Element nicht nur ausgeblendet, sondern komplett entfernt. Zur Nutzung muss das CommonModule importiert werden. Da das Element aus dem DOM entfernt wird, kann es beim Ein- und Ausblenden zu sichtbaren Layout-Sprüngen kommen, wenn man keine eigenen Animationen verwendet</p>
                     <div class="assignment-container">
                         <button class="btn" (click)="toggleDisplayNgif()">Ein-/Ausblenden</button>
-                        <div class="circle" *ngIf="displayNgIf"></div>
+                        <div class="circle" *ngIf="displayNgIf; else hiddenContent"></div>
+                        <ng-template #hiddenContent>
+                            <div>Content is hidden</div>
+                        </ng-template>
                     </div>
                 </article>
             </section>
+
+
+            <section id="atIfElse">
+                <h2>&#64;if / &#64;else</h2>
+                <article>
+                    <p>Die &<code>#64;if</code> und <code>&#64;else</code> Direktiven sind aber Angular 17 verfügbar und sollten am besten die alte <code>*ngIf</code>-Direktive ersetzen.</p>
+                    <div class="assignment-container">
+                        <button class="btn" (click)="toggleDisplayAtif()">Ein-/Ausblenden</button>
+                        <div class="circle" *ngIf="displayAtIf"></div>
+                    </div>
+                </article>
+            </section>
+
+
 
             <section id="ngfor">
                 <h2>*ngFor</h2>
@@ -185,6 +203,16 @@
                 </article>
             </section>
 
+
+            <section id="atSwitch">
+                <h2>&#64;Switch</h2>
+                <article>
+                    <p>56 NG17 Control Flow Statement &'64;Switch</p>
+                    <div class="assignment-container">
+                    </div>
+                </article>
+            </section>
+
             <section id="ngclass">
                 <h2>ngclass</h2>
                 <article>
@@ -202,16 +230,6 @@
                     <p>58 Attribute Directives – [ngStyle]</p>
                     <p>59 Assignment – Changing the color of input field using [ngStyle]</p>
                     <p>kurze Erklärung, Beispiel: Button-Farbe dynamisch ändern, Fehlerzustand markieren</p>
-                    <div class="assignment-container">
-                    </div>
-                </article>
-            </section>
-
-            <section id="atIfElse">
-                <h2>&#64;if / &#64;else</h2>
-                <article>
-                    <p>49 NG17-Control Flow Statements (&#64;if & &#64;else)</p>
-                    <p>kurz erklären, ein Beispiel: Login/Logout, Ware auf Lager / nicht auf Lager</p>
                     <div class="assignment-container">
                     </div>
                 </article>

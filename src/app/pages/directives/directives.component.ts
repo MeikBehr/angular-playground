@@ -17,6 +17,12 @@ export class DirectivesComponent {
       this.displayNgIf = !this.displayNgIf;
     }
 
+    // @if
+    displayAtIf: boolean = true;
+    toggleDisplayAtif() {
+      this.displayAtIf = !this.displayAtIf;
+    }
+
     // ngFor
     ngForObject = [
       {id: 1, name : 'GPT', 'developer':'OpenAI'},
