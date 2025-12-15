@@ -25,25 +25,42 @@ export class DirectivesComponent {
       {id: 5, name : 'Llama', 'developer':'Meta'},
     ]
 
-    codeExample = `
-    <table>
-      <tr>
-        <th>Nummer</th>
-        <th>KI / LLM</th>
-        <th>Anbieter</th>
-      </tr>
+    codeExampleNgFor = `
+    <tbody>
       <tr *ngFor="let entry of ngForObject">
         <td>{{ entry.id }}</td>
         <td>{{ entry.name }}</td>
         <td>{{ entry.developer }}</td>
       </tr>
-    </table>
+    </tbody>
     `;
 
-    codeExampleString = `
+    codeExampleStringNgFor = `
     <span *ngFor="let char of ('Angular'.split(''))">
       {{ char }} -
     </span>
     `;
+
+    // @For
+    codeExampleAtFor = `
+    <tbody>
+      @for (entry of ngForObject; track $index) {
+        <tr>
+          <td>{{ entry.id}}</td>
+          <td>{{ entry.name}}</td>
+          <td>{{ entry.developer}}</td>
+        </tr>
+      } @empty {
+      <h2>Keine Daten vorhanden!</h2>
+      }
+    </tbody>
+    `;
+
+        codeExampleStringAtFor = `
+    <span *ngFor="let char of ('Angular'.split(''))">
+      {{ char }} -
+    </span>
+    `;  
+    
 
 }

@@ -129,6 +129,26 @@ ul {
     padding-left: 32px;
 }
 
+table {
+  border-collapse: collapse;
+  width: 300px;
+}
+
+th,
+td {
+  border: 1px solid #606060;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.w300 {
+    width: 300px;
+}
+
 .circle {
     width: 200px;
     height: 30px;

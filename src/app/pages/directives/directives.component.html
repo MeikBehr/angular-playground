@@ -40,34 +40,38 @@
             <section id="ngfor">
                 <h2>*ngFor</h2>
                 <article>
-                    <p><code>*ngFor</code> ist eine Struktur-Direktive, die es ermöglicht, einen Codeblock (wie eine Liste oder eine Kartenansicht) für jedes Element in einer Daten-Collection (nicht nur Array, sondern jedwede iterable (durchlaufbare) Datenstrukturen) zu wiederholen. Sie steuert dynamisch, welche HTML-Elemente in der DOM-Struktur erstellt und dargestellt werden.</p>
+                    <p><code>*ngFor</code> ist eine Struktur-Direktive, die es ermöglicht, einen Codeblock (wie eine Liste oder eine Kartenansicht) für jedes Element in einer Daten-Collection (nicht nur Array, sondern jedwede iterable (durchlaufbare) Datenstrukturen) zu wiederholen. Sie steuert dynamisch, welche HTML-Elemente in der DOM-Struktur erstellt und dargestellt werden. Im Beispiel wirkt sie auf alle Children vom <code>&#60;tr&#62;</code>.</p>
                     <div class="assignment-container">
                         <div class="flex-row">
                             <table>
-                                <tr>
-                                    <th>Nummer</th>
-                                    <th>KI / LLM</th>
-                                    <th>Anbieter</th>
-                                </tr>
-                                <tr *ngFor="let entry of ngForObject">
-                                   <td>{{ entry.id}}</td>
-                                   <td>{{ entry.name}}</td>
-                                   <td>{{ entry.developer}}</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th>Nummer</th>
+                                        <th>KI / LLM</th>
+                                        <th>Anbieter</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let entry of ngForObject">
+                                        <td>{{ entry.id}}</td>
+                                        <td>{{ entry.name}}</td>
+                                        <td>{{ entry.developer}}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                             <div class="showCode">
-                                <pre [innerText]="codeExample"></pre>
+                                <pre [innerText]="codeExampleNgFor"></pre>
                             </div>
                         </div>
 
                         <div class="flex-row">
-                            <div>
+                            <div class="w300">
                                 <span *ngFor="let char of ('Angular'.split(''))">
                                 {{ char }} -
                                 </span>
                             </div>
                             <div class="showCode">
-                                <pre [innerText]="codeExampleString"></pre>
+                                <pre [innerText]="codeExampleStringNgFor"></pre>
                             </div>
                         </div>
 
@@ -78,8 +82,69 @@
             <section id="atFor">
                 <h2>&#64;For</h2>
                 <article>
-                    <p>52 NG17-Control Flow Statements (&#64;for loop)</p>
-                    <p>Erklärung: moderner Loop, ersetzt *ngFor, ein einfaches Beispiel (z. B. Produkte durchlaufen)</p>
+                    <p>
+                        Mit Angular 17 wurde mit <code>&#64;for</code> eine neue Control-Flow-Syntax eingeführt, die funktional
+                        das gleiche Ziel wie <code>*ngFor</code> verfolgt, jedoch klarer strukturiert ist. 
+                        Im Gegensatz zur Sternchen-Syntax handelt es sich bei <code>&#64;for</code> um einen echten Template-Block,
+                        was die Lesbarkeit erhöht und den Umfang der Schleife eindeutig definiert.
+                    </p>
+
+                    <p>
+                        Neu ist außerdem, dass ein <code>track</code>-Ausdruck verpflichtend ist.
+                        Dadurch wird Angular explizit mitgeteilt, wie einzelne Elemente eindeutig identifiziert werden sollen.
+                        Optional kann mit <code>&#64;empty</code> direkt ein Fallback für leere Collections definiert werden,
+                        ohne vorher manuell prüfen zu müssen, ob Daten vorhanden sind.
+                    </p>
+                    <p>
+                        Bestehende Templates mit <code>*ngIf</code>, <code>*ngFor</code> und <code>*ngSwitch</code>
+                        können mithilfe des Angular-Schematics
+                        <code>ng generate &#64;angular/core:control-flow</code>
+                        automatisch auf die neue Control-Flow-Syntax migriert werden.
+                    </p>
+
+
+                    <div class="assignment-container">
+                        <div class="flex-row">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nummer</th>
+                                        <th>KI / LLM</th>
+                                        <th>Anbieter</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (entry of ngForObject; track entry.id) {
+                                        <tr>
+                                            <td>{{ entry.id}}</td>
+                                            <td>{{ entry.name}}</td>
+                                            <td>{{ entry.developer}}</td>
+                                        </tr>
+                                    } @empty {
+                                        <h2>Keine Daten vorhanden!</h2>
+                                    }
+                                </tbody>
+                            </table>
+                            <div class="showCode">
+                                <pre [innerText]="codeExampleAtFor"></pre>
+                            </div>
+                        </div>
+
+                        <div class="flex-row">
+                            <div class="w300">
+                                @for (char of ('Angular'.split('')); track $index) {
+                                  <span>
+                                  {{ char }} -
+                                  </span>  
+                                }
+                            </div>
+                            <div class="showCode">
+                                <pre [innerText]="codeExampleStringAtFor"></pre>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </article>
             </section>
 
