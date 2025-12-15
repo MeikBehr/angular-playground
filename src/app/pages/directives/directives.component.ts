@@ -17,11 +17,19 @@ export class DirectivesComponent {
       this.displayNgIf = !this.displayNgIf;
     }
 
+    codeExampleNgIf = `<div class="btn-green" *ngIf="displayNgIf; else hiddenContent"></div>`;
+
     // @if
     displayAtIf: boolean = true;
     toggleDisplayAtif() {
       this.displayAtIf = !this.displayAtIf;
     }
+    codeExampleAtIf = `
+@if (displayAtIf) {
+  <div class="btn-green"></div>    
+  } @else {
+    <div>Content is hidden</div> 
+}`;
 
     // ngFor
     ngForObject = [

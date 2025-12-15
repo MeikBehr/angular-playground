@@ -133,6 +133,14 @@ ul {
     overflow-x: auto;
 }
 
+#ngif .showCode,
+#atIfElse .showCode {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    padding-left: 0px;
+}
+
 table {
   border-collapse: collapse;
   width: 300px;
@@ -186,7 +194,7 @@ th {
 
 
 
-.circle {
+.btn-green {
     width: 200px;
     height: 30px;
     border-radius: 15px;

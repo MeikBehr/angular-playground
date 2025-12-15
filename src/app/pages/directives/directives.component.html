@@ -31,9 +31,13 @@
                 <h2>*ngIf</h2>
                 <article>
                     <p>Diese Direktive verwendet man, um Elemente wirklich aus dem DOM zu entfernen oder wieder hinzuzufügen. Im Gegensatz zu CSS (z. B. <code>display:none</code>) wird das Element nicht nur ausgeblendet, sondern komplett entfernt. Zur Nutzung muss das CommonModule importiert werden. Da das Element aus dem DOM entfernt wird, kann es beim Ein- und Ausblenden zu sichtbaren Layout-Sprüngen kommen, wenn man keine eigenen Animationen verwendet</p>
+                    <div class="showCode">
+                        <h4>Code:</h4>
+                        <pre [innerText]="codeExampleNgIf"></pre>
+                    </div>
                     <div class="assignment-container">
                         <button class="btn" (click)="toggleDisplayNgif()">Ein-/Ausblenden</button>
-                        <div class="circle" *ngIf="displayNgIf; else hiddenContent"></div>
+                        <div class="btn-green" *ngIf="displayNgIf; else hiddenContent"></div>
                         <ng-template #hiddenContent>
                             <div>Content is hidden</div>
                         </ng-template>
@@ -45,10 +49,19 @@
             <section id="atIfElse">
                 <h2>&#64;if / &#64;else</h2>
                 <article>
-                    <p>Die &<code>#64;if</code> und <code>&#64;else</code> Direktiven sind aber Angular 17 verfügbar und sollten am besten die alte <code>*ngIf</code>-Direktive ersetzen.</p>
+                    <p>Die <code>&#64;if</code> und <code>&#64;else</code> Direktiven sind ab Angular 17 verfügbar und sollten am besten die alte <code>*ngIf</code>-Direktive ersetzen.</p>
+                    <p><code>*ngIf</code> ist eine klassische Angular-Direktive, die selbst mit <code>&#64;Directive</code>implementiert ist und zur Laufzeit ausgewertet wird. <code>&#64;if</code> hingegen ist Teil der neuen Control-Flow-Syntax ab Angular 17 und wird direkt vom Template-Compiler verarbeitet. Dadurch ist <code>&#64;if</code> kein Directive-Wrapper mehr, sondern ein integraler Bestandteil der Template-Sprache.</p>
+                    <div class="showCode">
+                        <h4>Code:</h4>
+                        <pre [innerText]="codeExampleAtIf"></pre>
+                    </div>
                     <div class="assignment-container">
                         <button class="btn" (click)="toggleDisplayAtif()">Ein-/Ausblenden</button>
-                        <div class="circle" *ngIf="displayAtIf"></div>
+                        @if (displayAtIf) {
+                            <div class="btn-green"></div>    
+                        } @else {
+                           <div>Content is hidden</div> 
+                        }
                     </div>
                 </article>
             </section>
