@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-directives',
   standalone: true,
-  imports: [ CommonModule ],
+  imports: [ CommonModule, FormsModule ],
   templateUrl: './directives.component.html',
   styleUrl: './directives.component.scss'
 })
@@ -61,6 +62,32 @@ export class DirectivesComponent {
       {{ char }} -
     </span>
     `;  
-    
+
+
+    // *ngSwitch
+    kiOption = ['ChatGPT', 'Gemini', 'Claude', 'Llama'];
+    choosenOption = '';
+
+
+        codeExampleStringNgSwitch = `
+<div class="flex-row">
+  <div>
+    <label id="kiChoise">Wähle ein LLM zur Auswertung:</label>
+    <select id="kiChoise" [(ngModel)]="choosenOption">
+      <option value="" disabled>Bitte wählen Sie eine Option aus</option>
+      <option *ngFor="let ki of kiOption" [ngValue]="ki">{{ ki }}</option>
+    </select>
+    <div [ngSwitch]="choosenOption">
+      <h4>Ergebnis der Auswertung</h4>
+      <p *ngSwitchCase="'ChatGPT'">GPT ist der Marktführer für die Code-Generierung.</p>
+      <p *ngSwitchCase="'Gemini'">Gemini ist stark in der logischen Analyse und TS-Code.</p>
+      <p *ngSwitchCase="'Claude'">Claude kann große Dateikontexte verarbeiten.</p>
+      <p *ngSwitchCase="'Llama'">Llama ist lahm. ^^</p>
+    </div>
+  </div>
+</div>    
+    `; 
+
+
 
 }

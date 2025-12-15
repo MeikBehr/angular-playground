@@ -151,9 +151,37 @@
             <section id="switch">
                 <h2>*ngSwitch</h2>
                 <article>
-                    <p>53 Structural Directives (*ngSwitch)</p>
-                    <p>54 Assignment – Implementing age validation functionality using *ngSwitch</p>
-                    <p>kurze Erklärung, Beispiel: Kategorieauswahl, Rolle bestimmen, Zahl vergleichen</p>
+                    <p>Die <code>*ngSwitch</code>-Direktive ist sehr gut dem traditionallem <code>switch</code>-Befehl aus JavaScript vergleichbar.</p>
+                    <p><code>*ngSwitch</code> eignet sich besonders, wenn ein einzelner Wert mehrere klar getrennte Anzeigezustände steuert und viele <code>*ngIf</code>-Blöcke unübersichtlich würden.</p>
+                    <p><i>Hinweis: Für die Nutzung von <code>ngModel</code> muss das FormsModule importiert sein. <code>ngModel</code> wurde nur genutzt, um die Auswahl mit Übergabe zu ermöglichen und ist für <code>*ngSwitch</code> selber nicht notwendig!</i></p>
+                
+                    <div class="assignment-container">
+
+                        <div>
+                            <div class="assignment">
+                                <label for="kiChoise">Wähle ein LLM zur Auswertung:</label>
+                                <select id="kiChoise" [(ngModel)]="choosenOption">
+                                    <option value="" disabled>Bitte wählen Sie eine Option aus</option>
+                                    <option *ngFor="let ki of kiOption" [ngValue]="ki">{{ ki }}</option>
+                                </select>
+
+                                <div [ngSwitch]="choosenOption">
+                                    <h4>Ergebnis der Auswertung</h4>
+                                    <p *ngSwitchDefault>Bitte wählen Sie ein Modell aus.</p>
+                                    <p *ngSwitchCase="'ChatGPT'">GPT ist der Marktführer für die Code-Generierung.</p>
+                                    <p *ngSwitchCase="'Gemini'">Gemini ist stark in der logischen Analyse und TS-Code.</p>
+                                    <p *ngSwitchCase="'Claude'">Claude kann große Dateikontexte verarbeiten.</p>
+                                    <p *ngSwitchCase="'Llama'">Llama ist lahm. ^^</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="showCode assignmentCode">
+                            <h4>Im Beispiel genutzter Code</h4>
+                            <pre [innerText]="codeExampleStringNgSwitch"></pre>
+                        </div>
+                    </div>
+                
                 </article>
             </section>
 
@@ -163,6 +191,8 @@
                     <p>55 Attribute Directives – [ngClass]</p>
                     <p>56 Assignment – ngClass</p>
                     <p>Erklärung: dynamisch CSS-Klassen setzen, Beispiel: aktive Karte, gültige/ungültige Eingabe</p>
+                    <div class="assignment-container">
+                    </div>
                 </article>
             </section>
 
@@ -172,6 +202,8 @@
                     <p>58 Attribute Directives – [ngStyle]</p>
                     <p>59 Assignment – Changing the color of input field using [ngStyle]</p>
                     <p>kurze Erklärung, Beispiel: Button-Farbe dynamisch ändern, Fehlerzustand markieren</p>
+                    <div class="assignment-container">
+                    </div>
                 </article>
             </section>
 
@@ -180,6 +212,8 @@
                 <article>
                     <p>49 NG17-Control Flow Statements (&#64;if & &#64;else)</p>
                     <p>kurz erklären, ein Beispiel: Login/Logout, Ware auf Lager / nicht auf Lager</p>
+                    <div class="assignment-container">
+                    </div>
                 </article>
             </section>
 
