@@ -96,6 +96,9 @@ ul {
     border: none;
     transition: background 0.2s;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 #ngif .btn,
@@ -239,6 +242,8 @@ th {
         padding: 4px 12px;
         cursor: pointer;
         height: 32px;
+        user-select: none;
+        -webkit-user-select: none;
     }
 
     &.lightMode {
@@ -258,6 +263,35 @@ th {
            background-color: $color-text;
         }
     }
+}
+
+
+#ngstyle {
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .assignmentCode {
+        display: flex;
+        flex-direction: column;
+        padding-top: 12px;
+    }
+
+    & .change-btn {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        padding-bottom: 16px;
+    }
+
+    & .btn {
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+
 }
 
 .btn-green {

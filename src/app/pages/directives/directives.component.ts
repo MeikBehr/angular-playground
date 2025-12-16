@@ -59,5 +59,19 @@ export class DirectivesComponent {
     }
     codeExampleNgClass = CODE_EXAMPLES.codeExampleNgClass;
 
+    // ngStyle
+    fontSize: number = 16;
+    codeExampleNgStyle = CODE_EXAMPLES.codeExampleNgStyle;
+
+    change(delta: number) {
+      if (delta == 16) {
+        this.fontSize = delta;
+        return;
+      }
+      const newSize = this.fontSize + delta;
+      if (newSize >= 4 && newSize <= 28) {
+        this.fontSize = newSize;
+      }
+    }
 
 }

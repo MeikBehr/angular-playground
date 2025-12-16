@@ -99,4 +99,16 @@ SCSS
 }
 `,
 
+codeExampleNgStyle : `
+HTML
+<div class="btn" (click)="change(1)">Größer</div>
+<div class="btn" (click)="change(-1)">Kleiner</div>
+<p [ngStyle]="{'font-size.px' : fontSize}">Das ist der Beispieltext</p>
+
+TS
+change(delta: number) {
+  const newSize = this.fontSize + delta;
+  if (newSize >= 4 && newSize <= 28) { this.fontSize = newSize;}
+}
+`,
 };
