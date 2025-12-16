@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CODE_EXAMPLES } from './directives.code-examples';
@@ -74,4 +74,40 @@ export class DirectivesComponent {
       }
     }
 
+    // Assignement
+
+    pokemons = [
+      {id : 0, name : 'Pikachu', type : 'Elektro', power : 5, isActiv: false },
+      {id : 1, name : 'Bisasam', type : 'Gras', power : 4, isActiv: false },
+      {id : 2, name : 'Glumanda', type : 'Feuer', power : 3, isActiv: false },
+      {id : 3, name : 'Schiggy', type : 'Wasser', power : 4, isActiv: false },
+      {id : 4, name : 'Digda', type : 'Erde', power : 2, isActiv: false },
+    ];
+
+    pokemonID: number = 0;
+    pokemonColorMode: string = 'Elektro';
+
+    ngOnInit() {
+      this.pokemonColorMode = this.pokemons[this.pokemonID].type;
+      this.pokemons[this.pokemonID].isActiv = true;
+      this.togglePokemonColor(this.pokemonID);
+    }
+
+    selectedPokemon(id: number): void {
+      this.pokemonID = id;
+      this.togglePokemonColor(id);
+      this.pokemons.forEach(el => el.isActiv = false);
+      this.pokemons[this.pokemonID].isActiv = true;
+    }
+
+    togglePokemonColor(id: number): void {
+      switch(this.pokemons[id].type) {
+        case 'Elektro' : { this.pokemonColorMode = 'electro'; break;}
+        case 'Gras' : { this.pokemonColorMode = 'gras'; break;}
+        case 'Feuer' : { this.pokemonColorMode = 'fire'; break;}
+        case 'Wasser' : { this.pokemonColorMode = 'water'; break;}
+        case 'Erde' : { this.pokemonColorMode = 'earth'; break;}
+      }
+
+    }
 }

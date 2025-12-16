@@ -290,10 +290,20 @@
             </section>
 
             <section id="assignments">
-                <h2>Assignments</h2>
-                <article>
-                    <p>z.B. 51 + 54 + 57 + 59 im Beispiel</p>
-                    <p></p>
+                <h2>Kleiner Pokedex</h2>
+                <article class="assignment-container">
+
+                    <div class="list">
+                        @for (pokemon of pokemons; track pokemon.id) {
+                            <div class="btn" [ngStyle]="{'background-color': pokemon.isActiv ? '#70E61C' : ''}" (click)="selectedPokemon(pokemon.id)">{{ pokemon.name }}</div>
+                        }
+                    </div>
+
+                    <div class="output">
+                        <div class="output-name">{{ pokemons[pokemonID].name }}</div>
+                        <div class="output-type" [ngClass]="pokemonColorMode">{{ pokemons[pokemonID].type }}</div>
+                        <div class="output-power">{{ pokemons[pokemonID].power }}</div>
+                    </div>
                 </article>
             </section>
 

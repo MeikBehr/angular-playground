@@ -99,6 +99,7 @@ ul {
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
+    transition: all 150ms ease-in-out;
 }
 
 #ngif .btn,
@@ -118,6 +119,7 @@ ul {
 }
 
 .btn:hover {
+  transition: all 150ms ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 1px, rgba(0, 0, 0, 0.23) 2px 2px 2px;
 }
 
@@ -292,6 +294,64 @@ th {
     }
 
 
+}
+
+#assignments {
+
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    & .list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    & .output {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 24px;
+        margin-left: 24px;
+        background-color: $color-bg;
+        min-width: 200px;
+        line-height: 150%;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+        padding: 8px 16px;
+
+        & div {
+            border-radius: 8px;
+            padding: 4px 8px;
+        }
+    }
+
+    .fire {
+        background-color: red;
+        color: $color-bg;
+    }
+
+    .gras {
+        background-color: green;
+        color: $color-bg;
+    }
+
+    .water {
+        background-color: blue;
+        color: $color-bg;
+    }
+
+    .electro {
+        background-color: yellow;
+    }
+
+    .earth {
+        background-color: brown;
+        color: $color-bg;
+    }
 }
 
 .btn-green {
