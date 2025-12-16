@@ -191,7 +191,33 @@ th {
     }
 }
 
+#atSwitch {
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+    }
 
+    & .assignment {
+        width: 380px;
+        max-width: 380px;
+
+        & label {
+            font-weight: bold;
+            display: block;
+            font-size: 16px;
+        }
+
+        & h4 {
+            padding-top: 16px;
+        }
+    }
+
+    & .assignmentCode {
+        display: flex;
+        flex-direction: column;
+        padding-top: 12px;
+    }
+}
 
 
 .btn-green {

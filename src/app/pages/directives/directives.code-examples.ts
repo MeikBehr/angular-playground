@@ -44,24 +44,41 @@ codeExampleStringAtFor : `
 
 
 codeExampleStringNgSwitch : `
-<div class="flex-row">
-  <div>
-    <label id="kiChoise">Wähle ein LLM zur Auswertung:</label>
-    <select id="kiChoise" [(ngModel)]="choosenOption">
-      <option value="" disabled>Bitte wählen Sie eine Option aus</option>
-      <option *ngFor="let ki of kiOption" [ngValue]="ki">{{ ki }}</option>
-    </select>
-    <div [ngSwitch]="choosenOption">
-      <h4>Ergebnis der Auswertung</h4>
-      <p *ngSwitchDefault>Bitte wählen Sie ein Modell aus.</p>
-      <p *ngSwitchCase="'ChatGPT'">GPT ist der Marktführer für die Code-Generierung.</p>
-      <p *ngSwitchCase="'Gemini'">Gemini ist stark in der logischen Analyse und TS-Code.</p>
-      <p *ngSwitchCase="'Claude'">Claude kann große Dateikontexte verarbeiten.</p>
-      <p *ngSwitchCase="'Llama'">Llama ist lahm. ^^</p>
-    </div>
+<div>
+  <label id="kiChoise">Wähle ein LLM zur Auswertung:</label>
+  <select id="kiChoise" [(ngModel)]="choosenOption">
+    <option value="" disabled>Bitte wählen Sie eine Option aus</option>
+    <option *ngFor="let ki of kiOption" [ngValue]="ki">{{ ki }}</option>
+  </select>
+  <div [ngSwitch]="choosenOption">
+    <h4>Ergebnis der Auswertung</h4>
+    <p *ngSwitchDefault>Bitte wählen Sie ein Modell aus.</p>
+    <p *ngSwitchCase="'ChatGPT'">GPT ist der Marktführer für die Code-Generierung.</p>
+    <p *ngSwitchCase="'Gemini'">Gemini ist stark in der logischen Analyse und TS-Code.</p>
+    <p *ngSwitchCase="'Claude'">Claude kann große Dateikontexte verarbeiten.</p>
+    <p *ngSwitchCase="'Llama'">Llama ist lahm. ^^</p>
   </div>
-</div>`,
+</div>
+`,
 
 
+codeExampleStringAtSwitch : `
+<div class="assignment">
+  <label for="kiChoise">Wähle ein LLM zur Auswertung:</label>
+  <select id="kiChoise" [(ngModel)]="choosenOptionAt">
+    <option value="" disabled>Bitte wählen Sie eine Option aus</option>
+    <option *ngFor="let ki of kiOption" [ngValue]="ki">{{ ki }}</option>
+  </select>
+  <div>
+  <h4>Ergebnis der Auswertung</h4>
+  @switch (choosenOptionAt) {
+    @case ('ChatGPT') {<p>GPT ist der Marktführer für die Code-Generierung.</p>}
+    @case ('Gemini') {<p>Gemini ist stark in der logischen Analyse und TS-Code.</p>}
+    @case ('Claude') {<p>Claude kann große Dateikontexte verarbeiten.</p>}
+    @case ('Llama') {<p>Llama ist lahm. ^^</p>}
+    @default {<p>Bitte wählen Sie ein Modell aus.</p>}
+  }
+</div>
+`,
 
 };

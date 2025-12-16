@@ -220,8 +220,35 @@
             <section id="atSwitch">
                 <h2>&#64;Switch</h2>
                 <article>
-                    <p>56 NG17 Control Flow Statement &'64;Switch</p>
+                    <p>Analog zu Ersetzen von <code>*ngIf</code> und <code>*ngFor</code> mit <code>&#64;if</code> und <code>&#64;for</code> wurde mit Angular 17 <code>*ngSwitch</code> durch die Einführung von <code>&#64;Switch</code> modernisiert. Am grundlegenden  Aufbau hat sich nichts verändert, die Lesbarkeit ist jedoch klarer.</p>
+                    <p><i>Achtung: <code>&#64;switch</code> ist keine Direktive. Genau wie <code>&#64;if</code> und <code>&#64;for</code> ist es direkt in die Template-Engine integriert.</i></p>
                     <div class="assignment-container">
+
+                        <div>
+                            <div class="assignment">
+                                <label for="kiChoise">Wähle ein LLM zur Auswertung:</label>
+                                <select id="kiChoise" [(ngModel)]="choosenOptionAt">
+                                    <option value="" disabled>Bitte wählen Sie eine Option aus</option>
+                                    <option *ngFor="let ki of kiOption" [ngValue]="ki">{{ ki }}</option>
+                                </select>
+
+                                <div>
+                                    <h4>Ergebnis der Auswertung</h4>
+                                    @switch (choosenOptionAt) {
+                                        @case ('ChatGPT') {<p>GPT ist der Marktführer für die Code-Generierung.</p>}
+                                        @case ('Gemini') {<p>Gemini ist stark in der logischen Analyse und TS-Code.</p>}
+                                        @case ('Claude') {<p>Claude kann große Dateikontexte verarbeiten.</p>}
+                                        @case ('Llama') {<p>Llama ist lahm. ^^</p>}
+                                        @default {<p>Bitte wählen Sie ein Modell aus.</p>}
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="showCode assignmentCode">
+                            <h4>Im Beispiel genutzter Code</h4>
+                            <pre [innerText]="codeExampleStringAtSwitch"></pre>
+                        </div>
                     </div>
                 </article>
             </section>

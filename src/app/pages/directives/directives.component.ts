@@ -48,6 +48,9 @@ export class DirectivesComponent {
     choosenOption = '';
     codeExampleStringNgSwitch = CODE_EXAMPLES.codeExampleStringNgSwitch; 
 
+    // @Switch
+    choosenOptionAt = '';
+    codeExampleStringAtSwitch = CODE_EXAMPLES.codeExampleStringAtSwitch;
 
 
 }
