@@ -81,4 +81,22 @@ codeExampleStringAtSwitch : `
 </div>
 `,
 
+codeExampleNgClass : `
+HTML
+<section id="ngclass" [ngClass]="colorMode">
+
+TS
+toggleMode(): void {
+  this.colorMode = (this.colorMode === 'lightMode') ? 'darkMode' : 'lightMode';
+}
+
+SCSS
+#ngclass {
+    &.lightMode {
+    }
+    &.darkMode {
+    }
+}
+`,
+
 };

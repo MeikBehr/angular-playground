@@ -219,6 +219,46 @@ th {
     }
 }
 
+#ngclass {
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .assignmentCode {
+        display: flex;
+        flex-direction: column;
+        padding-top: 12px;
+    }
+
+    .button {
+        text-align: center;
+        max-width: 20%;
+        min-width: 200px;
+        border-radius: 60px;
+        padding: 4px 12px;
+        cursor: pointer;
+        height: 32px;
+    }
+
+    &.lightMode {
+        background-color: $color-sections;
+        color: $color-text;
+
+        & .btn-lightmode {
+           background-color: $color-bg;
+        }
+    }
+
+    &.darkMode {
+        background-color: $color-surface-alt;
+        color: $color-bg;
+        
+        & .btn-lightmode {
+           background-color: $color-text;
+        }
+    }
+}
 
 .btn-green {
     width: 200px;

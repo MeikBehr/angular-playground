@@ -52,5 +52,12 @@ export class DirectivesComponent {
     choosenOptionAt = '';
     codeExampleStringAtSwitch = CODE_EXAMPLES.codeExampleStringAtSwitch;
 
+    // ngClass
+    colorMode = 'lightMode';
+    toggleMode(): void {
+        this.colorMode = (this.colorMode === 'lightMode') ? 'darkMode' : 'lightMode';
+    }
+    codeExampleNgClass = CODE_EXAMPLES.codeExampleNgClass;
+
 
 }

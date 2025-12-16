@@ -223,7 +223,6 @@
                     <p>Analog zu Ersetzen von <code>*ngIf</code> und <code>*ngFor</code> mit <code>&#64;if</code> und <code>&#64;for</code> wurde mit Angular 17 <code>*ngSwitch</code> durch die Einführung von <code>&#64;Switch</code> modernisiert. Am grundlegenden  Aufbau hat sich nichts verändert, die Lesbarkeit ist jedoch klarer.</p>
                     <p><i>Achtung: <code>&#64;switch</code> ist keine Direktive. Genau wie <code>&#64;if</code> und <code>&#64;for</code> ist es direkt in die Template-Engine integriert.</i></p>
                     <div class="assignment-container">
-
                         <div>
                             <div class="assignment">
                                 <label for="kiChoise">Wähle ein LLM zur Auswertung:</label>
@@ -253,13 +252,17 @@
                 </article>
             </section>
 
-            <section id="ngclass">
-                <h2>ngclass</h2>
+            <section id="ngclass" [ngClass]="colorMode">
+                <h2>[ngclass]</h2>
                 <article>
-                    <p>55 Attribute Directives – [ngClass]</p>
-                    <p>56 Assignment – ngClass</p>
-                    <p>Erklärung: dynamisch CSS-Klassen setzen, Beispiel: aktive Karte, gültige/ungültige Eingabe</p>
+                    <p>Attribut-Direktiven wie <code>[ngClass]</code> werden verwendet, um CSS-Styles dynamisch zu setzen oder zu entfernen.</p>
+                    <p>Es kann mehr als eine Klasse gesetzt werden, auch die Verwendung von Arrays und Objects ist möglich.</p>
                     <div class="assignment-container">
+                        <div class="button btn-lightmode" (click)="toggleMode()">Toggle Mode</div>
+                        <div class="showCode assignmentCode">
+                            <h4>Im Beispiel genutzter Code</h4>
+                            <pre [innerText]="codeExampleNgClass"></pre>
+                        </div>
                     </div>
                 </article>
             </section>
