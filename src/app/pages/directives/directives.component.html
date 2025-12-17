@@ -50,7 +50,7 @@
                 <h2>&#64;if / &#64;else</h2>
                 <article>
                     <p>Die <code>&#64;if</code> und <code>&#64;else</code> Direktiven sind ab Angular 17 verfügbar und sollten am besten die alte <code>*ngIf</code>-Direktive ersetzen.</p>
-                    <p><code>*ngIf</code> ist eine klassische Angular-Direktive, die selbst mit <code>&#64;Directive</code>implementiert ist und zur Laufzeit ausgewertet wird. <code>&#64;if</code> hingegen ist Teil der neuen Control-Flow-Syntax ab Angular 17 und wird direkt vom Template-Compiler verarbeitet. Dadurch ist <code>&#64;if</code> kein Directive-Wrapper mehr, sondern ein integraler Bestandteil der Template-Sprache.</p>
+                    <p><code>*ngIf</code> ist eine klassische Angular-Direktive, die selbst mit <code>&#64;Directive</code> implementiert ist und zur Laufzeit ausgewertet wird. <code>&#64;if</code> hingegen ist Teil der neuen Control-Flow-Syntax ab Angular 17 und wird direkt vom Template-Compiler verarbeitet. Dadurch ist <code>&#64;if</code> kein Directive-Wrapper mehr, sondern ein integraler Bestandteil der Template-Sprache.</p>
                     <div class="showCode">
                         <h4>Code:</h4>
                         <pre [innerText]="codeExampleAtIf"></pre>
@@ -291,6 +291,7 @@
 
             <section id="assignments">
                 <h2>Kleiner Pokedex</h2>
+                <p>Hier zeige ich kurz und an einfachen Beispielen das mögliche Zusammenspiel der oben erklärten Directiven.</p>
                 <article class="assignment-container">
 
                     <div class="list">
@@ -300,9 +301,25 @@
                     </div>
 
                     <div class="output">
-                        <div class="output-name">{{ pokemons[pokemonID].name }}</div>
-                        <div class="output-type" [ngClass]="pokemonColorMode">{{ pokemons[pokemonID].type }}</div>
-                        <div class="output-power">{{ pokemons[pokemonID].power }}</div>
+
+                        @if (!pokemonChoosen) {
+                            <div>Bitte ein Pokemon auswählen</div>
+                        } @else {
+                            <div>Name: {{ pokemons[pokemonID].name }}</div>
+                            <div>Typ: <span [ngClass]="pokemonColorMode">{{ pokemons[pokemonID].type }}</span></div>
+                            <div>Power: {{ pokemons[pokemonID].power }}</div>
+
+                            <div class="output-power">
+                                @switch (pokemons[pokemonID].type) {
+                                    @case ('Elektro') {<p>Elektro-Pokémon speichern Energie in ihren Backentaschen und entladen sie bei Gefahr.</p>}
+                                    @case ('Gras') {<p>Gras-Pokémon nutzen die Kraft der Photosynthese und sind meist eng mit der Natur verbunden.</p>}
+                                    @case ('Feuer') {<p>Die Flamme an der Schweifspitze eines Feuer-Pokémon gibt Auskunft über seine Lebenskraft.</p>}
+                                    @case ('Wasser') {<p>Wasser-Pokémon fühlen sich in Seen und Meeren wohl und speien kraftvolle Wasserstrahlen.</p>}
+                                    @case ('Erde') {<p>Erde-Pokémon sind oft tief unter der Oberfläche zu Hause und resistent gegen Elektro-Attacken.</p>}
+                                    @default {<p></p>}
+                                }
+                            </div>
+                        }
                     </div>
                 </article>
             </section>

@@ -84,20 +84,21 @@ export class DirectivesComponent {
       {id : 4, name : 'Digda', type : 'Erde', power : 2, isActiv: false },
     ];
 
-    pokemonID: number = 0;
-    pokemonColorMode: string = 'Elektro';
-
-    ngOnInit() {
-      this.pokemonColorMode = this.pokemons[this.pokemonID].type;
-      this.pokemons[this.pokemonID].isActiv = true;
-      this.togglePokemonColor(this.pokemonID);
-    }
+    pokemonID: number = -1;       // -1 as default for no Pokemon choosen
+    pokemonColorMode: string = '';
+    pokemonChoosen: boolean = false;
 
     selectedPokemon(id: number): void {
-      this.pokemonID = id;
-      this.togglePokemonColor(id);
       this.pokemons.forEach(el => el.isActiv = false);
-      this.pokemons[this.pokemonID].isActiv = true;
+      if (this.pokemonID === id) {
+        this.pokemonChoosen = false;
+        this.pokemonID = -1;
+      } else {
+        this.pokemonChoosen = true;
+        this.pokemonID = id;
+        this.togglePokemonColor(id);
+        this.pokemons[this.pokemonID].isActiv = true;
+      }
     }
 
     togglePokemonColor(id: number): void {
