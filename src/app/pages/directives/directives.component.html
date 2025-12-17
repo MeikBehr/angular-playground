@@ -10,6 +10,7 @@
         <a href="directives/#ngclass">ngClass</a>
         <a href="directives/#ngstyle">ngStyle</a>
         <a href="directives/#assignments">Assignments</a>
+        <a href="directives/#questions">Questions</a>
     </aside>
 
     <div class="directives-container container">
@@ -324,6 +325,39 @@
                 </article>
             </section>
 
+
+            <section id="questions">
+                <h2>Einige Verständnisfragen zum Thema</h2>
+                <p></p>
+                <article class="assignment-container">
+
+                    <div class="list">
+                        @for (question of questions; track question.id) {
+                            <div class="btn" [ngStyle]="{'background-color': question.isActiv ? '#70E61C' : ''}" (click)="selectedQuestion(question.id)">{{ question.topic }}</div>
+                        }
+                    </div>
+
+                    <div class="output">
+
+                        @if (!questionChoosen) {
+                            <div>Bitte eine Frage auswählen</div>
+                        } @else {
+                            <div>{{ questions[questionID].text }}</div>
+
+                            @if (showAnswer) {
+                                <div class="answer" (click)="showAnswer = !showAnswer" role="button">{{ questions[questionID].answer }}</div>
+                            } @else {
+                                <div class="btn" (click)="showAnswer = !showAnswer" role="button">
+                                    <p>Du weißt es nicht?</p>
+                                    <p>Klick mich für die Antwort!</p>
+                                </div>
+                            }
+
+                            
+                        }
+                    </div>
+                </article>
+            </section>            
 
         </main>
 

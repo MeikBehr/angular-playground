@@ -109,6 +109,62 @@ export class DirectivesComponent {
         case 'Wasser' : { this.pokemonColorMode = 'water'; break;}
         case 'Erde' : { this.pokemonColorMode = 'earth'; break;}
       }
-
     }
+
+    // Questions
+
+    questions = [
+      { id : 0, 
+        topic : '@if vs ngIf', 
+        text : 'Was ist der grundlegende Unterschied zwischen *ngIf und @if, und warum wurde @if eingeführt?', 
+        answer : "*ngIf ist eine klassische Angular-Direktive, die zur Laufzeit ausgewertet wird und intern mit @Directive umgesetzt ist. @if ist Teil der neuen Control-Flow-Syntax ab Angular 17 und wird direkt vom Template-Compiler verarbeitet. Dadurch ist @if performanter, besser lesbar und kein Direktiven-Wrapper mehr.",
+        isActiv: false 
+      },
+      {
+        id : 1, 
+        topic : '@for vs ngFor', 
+        text : 'Warum ist track bei @for verpflichtend und was bringt das für Angular?', 
+        answer : "*ngFor ist eine Direktive, während @for Teil der neuen Template-Syntax ist. Bei @for ist track verpflichtend, damit Angular DOM-Elemente effizient wiederverwenden kann. Das verbessert Performance und macht den Code klarer.", 
+        isActiv: false 
+      },
+      {
+        id : 2, 
+        topic : 'ngClass vs ngStyle', 
+        text : 'Wann würdest du ngClass bevorzugen und wann ngStyle?', 
+        answer : "ngClass wird verwendet, um ganze CSS-Klassen dynamisch zu setzen oder zu entfernen. ngStyle ist sinnvoll, wenn einzelne Styles direkt geändert werden sollen, z. B. Farben oder Größen. Für komplexeres Styling ist ngClass meist die bessere Wahl.", 
+        isActiv: false 
+      },
+      {
+        id : 3, 
+        topic : 'Logik TS vs Template', 
+        text : 'Warum sollte komplexe Logik eher im TypeScript als im Template stehen?', 
+        answer : "Komplexe Logik sollte im TypeScript stehen, damit Templates übersichtlich und lesbar bleiben. Templates sind für Darstellung gedacht, nicht für Geschäftslogik. Das erleichtert Wartung, Tests und Fehlersuche.", 
+        isActiv: false 
+      },
+      {
+        id : 4, 
+        topic : '@switch Einsatz', 
+        text : 'Wann ist @switch sinnvoller als mehrere @if-Blöcke?', 
+        answer : "@switch ist sinnvoll, wenn mehrere feste Fälle sauber unterschieden werden sollen. Es ist übersichtlicher als viele @if-Blöcke hintereinander. Wie @if ist @switch Teil der neuen Template-Syntax und keine Direktive.", 
+        isActiv: false 
+      },
+    ];
+
+    questionID: number = -1;       // -1 as default for no Pokemon choosen
+    questionChoosen: boolean = false;
+    showAnswer: boolean = false;
+
+    selectedQuestion(id: number): void {
+      this.questions.forEach(el => el.isActiv = false);
+      this.showAnswer = false;
+      if (this.questionID === id) {
+        this.questionChoosen = false;
+        this.questionID = -1;
+      } else {
+        this.questionChoosen = true;
+        this.questionID = id;
+        this.questions[this.questionID].isActiv = true;
+      }
+    }
+
 }
