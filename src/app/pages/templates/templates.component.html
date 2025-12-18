@@ -1,11 +1,11 @@
 <section class="templates">
 
     <aside class="side-nav" role="navigation">
-        <a href="directives/#ngContainer">ng-container</a>
-        <a href="directives/#ngTemplate">ng-template</a>
-        <a href="directives/#ngTemplateOutlet">ngTemplateOutlet</a>
-        <a href="directives/#assignments">Assignments</a>
-        <a href="directives/#questions">Questions</a>
+        <a href="templates/#ngContainer">ng-container</a>
+        <a href="templates/#ngTemplate">ng-template</a>
+        <a href="templates/#ngTemplateOutlet">ngTemplateOutlet</a>
+        <a href="templates/#assignments">Assignments</a>
+        <a href="templates/#questions">Questions</a>
     </aside>
 
     <div class="templates-container container">
@@ -13,28 +13,35 @@
         <main class="content">
 
             <h1>Templates</h1>
-            <p>sdfkljhjsdfhjsdfhjsdkjlf.</p>
-            <p>sdfsdfsdf sdf sdf</p>
+            <p>In Angular gibt es verschiedene Möglichkeiten, DOM-Elemente zu gruppieren, um Logik anzuwenden, ohne das Layout oder die Performance negativ zu beeinflussen:</p>
             <ul>
-                <li><strong>ng-container</strong>: bla bla bla.</li>
-                <li><strong>ng-template</strong>: bla bla bla.</li>
-                <li><strong>ngTemplateOutlet</strong>: bla bla bla.</li>
+                <li><strong>ng-container</strong>: Eine logische Klammer für Direktiven (wie <code>&#64;for</code> oder <code>&#64;if</code>), die selbst nicht im DOM erscheint und somit CSS-Layouts wie Flexbox und Grid nicht stört.</li>
+                <li><strong>ng-template</strong>: Ein definierter HTML-Block, der standardmäßig unsichtbar ist und erst durch eine Bedingung oder manuelle Aufforderung an einer bestimmten Stelle "gezeichnet" wird.</li>
+                <li><strong>ngTemplateOutlet</strong>: Eine "Einsetz-Hilfe", mit der man ein bereits definiertes <code>ng-template</code> an einer oder mehreren beliebigen Stellen im Dokument wiederverwendet und einfügt.</li>
             </ul>
-            <p>bla bla bla.</p>
             <br>
-
 
             <section id="ngContainer">
                 <h2>ng-container</h2>
                 <article>
-                    <p><code>*ngFor</code> bla bla.</p>
+                    <p>Der <code>ng-container</code> ist ein nicht-rendernder Gruppierungs-Host und kann keine Styles / Klassen tragen. Er kann sehr gut zur Gruppierung von DOM-Elementen genutzt und somit die Verwendung zusätzlicher <code>&#60;div&#62;</code>-Wrapper reduziert werden. Dies vermeidet insbesondere störende zusätzliche Ebenen und erhöht so die Layout-Sicherheit zum Beispiel bei Flexbox und Grid. Der <code>ng-container</code> Befehl wird beim Kompilieren aufgelöst. Daher kann er nicht Klassen in den DOM übertragen.</p>
                     <div class="assignment-container">
-                        <div class="flex-row">
-                            <div>
-                                ksdfhs jdkfhsjkdfh skjdf
+                        <div class="show">
+                            <div class="showCode">
+                                <p>Codebeispiel mit DIV</p>
+                                <pre [innerText]="ngContainerWithout"></pre>
                             </div>
                             <div class="showCode">
-                                <pre [innerText]=""></pre>
+                                <p>Codebeispiel mit ng-container</p>
+                                <pre [innerText]="ngContainerWith"></pre>
+                            </div>
+                            <div class="showCode">
+                                <p>Code mit ng-container (Check Dev-Tools)</p>
+                                <ng-container>
+                                    <p><i>Ich bin der Beweis!</i></p>
+                                    <p><i>Bitte schau in den</i></p>
+                                    <p><i>Devtools nach der Gruppierung!</i></p>
+                                </ng-container>
                             </div>
                         </div>
                     </div>

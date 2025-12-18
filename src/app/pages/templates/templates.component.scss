@@ -125,6 +125,12 @@ ul {
         flex-direction: column;
         padding-top: 12px;
     }
+
+    & .show {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
 }
 
 #ngTemplate {

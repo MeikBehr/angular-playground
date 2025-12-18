@@ -9,4 +9,20 @@ import { Component } from '@angular/core';
 })
 export class TemplatesComponent {
 
+ngContainerWithout = `
+<div>
+  <p>Dieses DIV</p>
+  <p>ist gruppierend</p>
+  <p>aber auch unnötig!</p>
+</div>
+`;
+ngContainerWith = `
+<ng-container>
+  <p>Besser, wir nutzen</p>
+  <p>hier einen ng-container</p>
+  <p>der nachher im DOM "verschwindet"!</p>
+</ng-container>
+`;
+
+
 }
