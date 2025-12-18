@@ -112,8 +112,6 @@ ul {
     flex-direction: row;
 }
 
-
-
 #ngContainer {
     & .assignment-container {
         display: flex;
@@ -137,6 +135,7 @@ ul {
     & .assignment-container {
         display: flex;
         flex-direction: row;
+        width: 100%;
     }
 
     & .assignmentCode {
@@ -144,6 +143,59 @@ ul {
         flex-direction: column;
         padding-top: 12px;
     }
+
+    & .flex-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    & .showCode {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    & .box {
+        padding: 35px;
+        min-width: 300px;
+    }
+
+    & .input-container {
+        position: relative;
+
+        & label {
+            position: absolute;
+            top: -4px;
+            left: 0px;
+            font-size: 16px;
+            transition: all 250ms ease-in-out;
+            z-index: 0;
+
+        }
+
+        & input {
+            border: 0;
+            border-bottom: 1px solid #555;
+            background: transparent;
+            width: 100%;
+            font-size: 16px;
+            padding: 8px 0 5px 0;
+            z-index: 1;
+        }
+
+        & input:focus {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid $color-tertiary;
+        }
+
+        & input:focus ~ label {
+            top: -12px;
+            font-size: 12px;
+        }
+    }
+
+
 }
 
 #ngTemplateOutlet {

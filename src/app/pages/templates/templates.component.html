@@ -51,15 +51,27 @@
             <section id="ngTemplate">
                 <h2>ng-template</h2>
                 <article>
-                    <p>bla bla bla</p>
-                    <p>bla bla bla</p>
+                    <p>Ist ein Template-Element, mit dessen Hilfe man einen Codeblock definieren und mehrmals verwenden kann. Um den <code>ng-template</code> anzusprechen, muss dieser eine Referenzvariable haben. Ebenso wie <code>ng-container</code> erschafft <code>ng-template</code> auch kein eigenes Element im DOM sondern wird beim Kompilieren entfernt.</p>
+                    <p>Der von <code>ng-template</code> umschlossene Inhalt wird nur gerendert, wenn das Template über eine Bedingung oder einen Outlet referenziert wird (z. B. via <code>*ngIf</code>, <code>&#64;if</code> oder <code>ngTemplateOutlet</code>).</p>
+                    <p><code>ng-template</code> muss explizit aufgerufen werden. Das geschieht üblicherweise per <code>*ngIf</code> innerhalb eines <code>div</code> oder <code>ng-container</code>, kann aber aber auf Umwegen mit Hilfe von <code>ngTemplateOutlet</code> oder direkt per TyüeScript aufgerufen werden.</p>
+                    <p><strong>Achtung:</strong> In den meisten Fällen ist <code>&#64;if</code> die bessere Wahl, denn <code>ng-template</code> hat seine Stärken mittlerweile nur noch bei Wiederverwendung oder dynamischem Einsätzen.</p>
                     <div class="assignment-container">
                         <div class="flex-row">
-                            <div>
-                                ksdfhsjdkfhsjkdfhskjdf
+                            <div class="box">
+                                <div class="input-container">
+                                    <input id="templateinput" type="text" [(ngModel)]="user" />
+                                    @if (user == '') {
+                                        <label for="templateinput">Name</label>
+                                    }
+                                </div>
+                                <!-- ng-container dient hier nur als Host für die else-Verzweigung -->
+                                <ng-container *ngIf="user !== ''; else notValid"></ng-container>
+                                <ng-template #notValid>
+                                    <h4>Bitte Namen eingeben!</h4>
+                                </ng-template>
                             </div>
                             <div class="showCode">
-                                <pre [innerText]=""></pre>
+                                <pre [innerText]="ngTemplateCode"></pre>
                             </div>
                         </div>
                     </div>
