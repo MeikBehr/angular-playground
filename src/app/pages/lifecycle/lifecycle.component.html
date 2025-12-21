@@ -1,0 +1,152 @@
+<section class="lifecycle">
+
+    <aside class="side-nav" role="navigation">
+        <a href="lifecycle/#ngOnInit">ngOnInit</a>
+        <a href="lifecycle/#ngOnChanges">ngOnChanges</a>
+        <a href="lifecycle/#ngAfterViewInit">ngAfterViewInit</a>
+        <a href="lifecycle/#ngOnDestroy">ngOnDestroy</a>
+        <a href="lifecycle/#ngOthers">andere-ng-lifecycle</a>
+        <a href="lifecycle/#assignments">Assignments</a>
+        <a href="lifecycle/#questions">Questions</a>
+    </aside>
+
+    <div class="lifecycle-container container">
+
+        <main class="content">
+
+            <h1>Lifecycle Hooks</h1>
+            <p>Angular-Komponenten haben einen Lebenszyklus, den wir mit speziellen "Hooks" (Schnittstellen) anzapfen können, um Logik zu bestimmten Zeitpunkten auszuführen:</p>
+            <ul>
+                <li><strong>ngOnInit</strong>: Der wichtigste Hook. Er wird einmalig aufgerufen, nachdem die Komponente initialisiert wurde. Hier platziert man typischerweise API-Aufrufe oder Variablen-Setups.</li>
+                <li><strong>ngOnChanges</strong>: Wird immer dann aufgerufen, wenn sich eine Eingabeeigenschaft (<code>&#64;Input</code>) ändert. Ideal, um auf Datenänderungen von außen zu reagieren.</li>
+                <li><strong>ngAfterViewInit</strong>: Wird gefeuert, sobald die HTML-Ansicht (das Template) der Komponente fertig geladen ist. Wichtig, wenn man direkt auf DOM-Elemente zugreifen muss.</li>
+                <li><strong>ngOnDestroy</strong>: Der "Aufräum-Dienst". Er wird direkt vor dem Zerstören der Komponente aufgerufen, um z.B. Timer zu stoppen oder Datenverbindungen zu trennen (Memory-Leaks verhindern).</li>
+            </ul>
+            <br>
+
+            <section id="ngOnInit">
+                <h2>ngOnInit</h2>
+                <article>
+                    <p>bla.</p>
+                    <p>blu</p>
+                    <p>blub.</p>
+                    <div class="assignment-container">
+                        <div class="flex-row">
+                        </div>
+                        <div class="showCode">
+                            <pre [innerText]=""></pre>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section id="ngOnChanges">
+                <h2>ngOnChanges</h2>
+                <article>
+                    <p>bla.</p>
+                    <p>blu</p>
+                    <p>blub.</p>
+                    <div class="assignment-container">
+                        <div class="flex-row">
+                        </div>
+                        <div class="showCode">
+                            <pre [innerText]=""></pre>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section id="ngAfterViewInit">
+                <h2>ngAfterViewInit</h2>
+                <article>
+                    <p>bla.</p>
+                    <p>blu</p>
+                    <p>blub.</p>
+                    <div class="assignment-container">
+                        <div class="flex-row">
+                        </div>
+                        <div class="showCode">
+                            <pre [innerText]=""></pre>
+                        </div>
+                    </div>
+                </article>
+            </section> 
+
+
+            <section id="ngOnDestroy">
+                <h2>ngOnDestroy</h2>
+                <article>
+                    <p>bla.</p>
+                    <p>blu</p>
+                    <p>blub.</p>
+                    <div class="assignment-container">
+                        <div class="flex-row">
+                        </div>
+                        <div class="showCode">
+                            <pre [innerText]=""></pre>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section id="ngOther">
+                <h2>Andere ng-Lifecyclen</h2>
+                <article>
+                    <p>bla.</p>
+                    <p>blu</p>
+                    <p>blub.</p>
+                    <div class="assignment-container">
+                        <div class="flex-row">
+                        </div>
+                        <div class="showCode">
+                            <pre [innerText]=""></pre>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section id="assignments">
+                <h2>Hier ein schönes Beispiel</h2>
+                <p>Bla bla blubber.</p>
+                <article class="assignment-container">
+                </article>
+            </section>
+
+            <section id="questions">
+                <h2>Einige Verständnisfragen zum Thema</h2>
+                <p></p>
+                <article class="assignment-container">
+
+                    <div class="list">
+                        @for (question of questions; track question.id) {
+                            <div class="btn" [ngStyle]="{'background-color': question.isActive ? '#70E61C' : ''}" (click)="selectedQuestion(question.id)">{{ question.topic }}</div>
+                        }
+                    </div>
+
+                    <div class="output">
+
+                        @if (!questionChoosen) {
+                            <div>Bitte eine Frage auswählen</div>
+                        } @else {
+                            <div>{{ questions[questionID].text }}</div>
+
+                            @if (showAnswer) {
+                                <div class="answer" (click)="showAnswer = !showAnswer" role="button">{{ questions[questionID].answer }}</div>
+                            } @else {
+                                <div class="btn" (click)="showAnswer = !showAnswer" role="button">
+                                    <p>Du weißt es nicht?</p>
+                                    <p>Klick mich für die Antwort!</p>
+                                </div>
+                            }
+
+                            
+                        }
+                    </div>
+                </article>
+            </section>               
+
+        </main>
+
+    </div>
+
+</section>

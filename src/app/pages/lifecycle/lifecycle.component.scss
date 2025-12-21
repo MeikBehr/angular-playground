@@ -1,0 +1,303 @@
+@use '../../../styles/variables' as *;
+
+section {
+  scroll-margin-top: 50px;
+}
+
+.lifecycle {
+    background-color: $color-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: $color-text;
+    position: relative;
+    z-index: 1;
+    min-height: calc(100dvh - $footer-height);
+}
+
+.lifecycle-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.side-nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    background-color: $color-bg;
+    z-index: 3;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+
+    a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        &:first-child {
+            padding-left: 10px; 
+        }
+
+        &:last-child {
+            padding-right: 10px;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+main {
+    padding-top: 36px;
+    padding-bottom: 36px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.content section {
+    width: 100%;
+    padding: 16px 16px 16px 16px;
+    background-color: $color-sections;
+    border-radius: $border-radius;
+    box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+}
+
+ul {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 32px;
+}
+
+.assignment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 12px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border-radius: 15px;
+    background-color: $color-bg;
+    border: none;
+    transition: background 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: all 150ms ease-in-out;
+}
+
+.btn:hover {
+  transition: all 150ms ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 1px, rgba(0, 0, 0, 0.23) 2px 2px 2px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+#ngOnInit {
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .assignmentCode {
+        display: flex;
+        flex-direction: column;
+        padding-top: 12px;
+    }
+
+    & .flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .show {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+}
+
+
+
+#ngOnChanges {
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .assignmentCode {
+        display: flex;
+        flex-direction: column;
+        padding-top: 12px;
+    }
+
+    & .flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .show {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+}
+
+
+#ngAfterViewInit {
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .assignmentCode {
+        display: flex;
+        flex-direction: column;
+        padding-top: 12px;
+    }
+
+    & .flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .show {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+}
+
+#ngOnDestroy {
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .assignmentCode {
+        display: flex;
+        flex-direction: column;
+        padding-top: 12px;
+    }
+
+    & .flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .show {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+}
+
+#ngOther {
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .assignmentCode {
+        display: flex;
+        flex-direction: column;
+        padding-top: 12px;
+    }
+
+    & .flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    & .show {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+}
+
+#assignments {
+
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        margin-top: 12px;
+    }
+
+}
+
+#questions {
+
+    & .assignment-container {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        margin-top: 12px;
+    }
+
+    & .list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    & .output {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 16px;
+        margin-left: 24px;
+        background-color: $color-bg;
+        min-width: 600px;
+        line-height: 120%;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
+        padding: 8px 16px;
+        max-width: 300px;
+
+        & div {
+            border-radius: 8px;
+            padding: 4px 8px;
+        }
+    }
+
+    & .output {
+
+        & .btn {
+            background-color: $color-sections;
+        }
+    }
+
+    & .answer {
+        background-color: $color-sections;
+        cursor: pointer;
+    }
+}
+
+
+@media (max-width: 1440px) {
+    main {
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+}
