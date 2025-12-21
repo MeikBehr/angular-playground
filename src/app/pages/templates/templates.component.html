@@ -53,7 +53,7 @@
                 <article>
                     <p>Ist ein Template-Element, mit dessen Hilfe man einen Codeblock definieren und mehrmals verwenden kann. Um den <code>ng-template</code> anzusprechen, muss dieser eine Referenzvariable haben. Ebenso wie <code>ng-container</code> erschafft <code>ng-template</code> auch kein eigenes Element im DOM sondern wird beim Kompilieren entfernt.</p>
                     <p>Der von <code>ng-template</code> umschlossene Inhalt wird nur gerendert, wenn das Template über eine Bedingung oder einen Outlet referenziert wird (z. B. via <code>*ngIf</code>, <code>&#64;if</code> oder <code>ngTemplateOutlet</code>).</p>
-                    <p><code>ng-template</code> muss explizit aufgerufen werden. Das geschieht üblicherweise per <code>*ngIf</code> innerhalb eines <code>div</code> oder <code>ng-container</code>, kann aber aber auf Umwegen mit Hilfe von <code>ngTemplateOutlet</code> oder direkt per TyüeScript aufgerufen werden.</p>
+                    <p><code>ng-template</code> muss explizit aufgerufen werden. Das geschieht üblicherweise per <code>*ngIf</code> innerhalb eines <code>div</code> oder <code>ng-container</code>, kann aber aber auf Umwegen mit Hilfe von <code>ngTemplateOutlet</code> oder direkt per TypeScript aufgerufen werden.</p><br>
                     <p><strong>Achtung:</strong> In den meisten Fällen ist <code>&#64;if</code> die bessere Wahl, denn <code>ng-template</code> hat seine Stärken mittlerweile nur noch bei Wiederverwendung oder dynamischem Einsätzen.</p>
                     <div class="assignment-container">
                         <div class="flex-row">
@@ -81,16 +81,78 @@
             <section id="ngTemplateOutlet">
                 <h2>ngTemplateOutlet</h2>
                 <article>
-                    <p>bla bla bla</p>
-                    <p>bla bla bla</p>
+                    <p>Das <code>ngTemplateOutlet</code> dient als dynamischer Ankerpunkt im HTML. Es ermöglicht, ein vordefiniertes <code>ng-template</code> gezielt an einer oder mehreren Stellen zu instanziieren, ohne das HTML redundant duplizieren zu müssen.</p>
+                    <p>Anstatt statische Blöcke zu bauen, fungiert das Outlet als Platzhalter, der zur Laufzeit entscheidet, welche Vorlage (Template) an dieser Position gerendert wird.</p>
+                    <p>Über das <code>context</code>-Property können Daten (Arrays, Objekten oder Zuständen) an das Template übergeben werden. Wird dabei der Schlüssel <code>$implicit</code> verwendet, kann dieser Wert im Template direkt über <code>let-</code>variable genutzt werden, ohne einen expliziten Namen zu vergeben. Das macht einfache Templates übersichtlicher, da nur der tatsächlich benötigte Wert weitergereicht wird.</p>
                     <div class="assignment-container">
                         <div class="flex-row">
-                            <div>
-                                ksdfhsjdkfhsjkdfhskjdf
+                            
+                            <div class="showColumn">
+                                <h4>Verwendung von $implizit</h4>
+                                <ng-template #aiTable let-ai>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>KI-Name</th>
+                                                <th>Model</th>
+                                                <th>Art</th>
+                                                <th>Kosten</th>
+                                                <th>Bewertung</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (e of ai; track $index) {
+                                            <tr>
+                                                <th>{{ e.name}}</th>
+                                                <th>{{ e.model}}</th>
+                                                <th>{{ e.type}}</th>
+                                                <th>{{ e.cost}}</th>
+                                                <th>{{ e.rating}}</th>
+                                            </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                                <ng-container *ngTemplateOutlet="aiTable; context: {$implicit: cards}"></ng-container>
+
+                                <div class="showCode">
+                                    <pre [innerText]="ngTemplateOutletImplizit"></pre>
+                                </div>
+
                             </div>
-                            <div class="showCode">
-                                <pre [innerText]=""></pre>
-                            </div>
+
+
+                            <div class="showColumn">
+                                <h4>Verwendung mit Context</h4>
+                                <ng-template #aiTableNamed let-ai="ai">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>KI-Name</th>
+                                                <th>Model</th>
+                                                <th>Art</th>
+                                                <th>Kosten</th>
+                                                <th>Bewertung</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (e of ai; track $index) {
+                                            <tr>
+                                                <th>{{ e.name}}</th>
+                                                <th>{{ e.model}}</th>
+                                                <th>{{ e.type}}</th>
+                                                <th>{{ e.cost}}</th>
+                                                <th>{{ e.rating}}</th>
+                                            </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                                <ng-container *ngTemplateOutlet="aiTableNamed; context: { ai: cards }"></ng-container>
+                                <div class="showCode">
+                                    <pre [innerText]="ngTemplateOutletContext"></pre>
+                                </div>
+                            </div>                            
                         </div>
                     </div>
                 </article>
