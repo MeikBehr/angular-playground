@@ -119,4 +119,63 @@ ngTemplateOutletContext: string = `
   *ngTemplateOutlet="aiTableNamed; context: { ai: cards }">
 </ng-container>
 `;
+
+
+
+    // Questions
+
+    questions = [
+      { id : 0, 
+        topic : 'ng-container', 
+        text : 'Was ist der Zweck von ng-container', 
+        answer : "ng-container ist ein nicht-rendernder Gruppierungs-Host. Er ermöglicht es, Direktiven (*ngIf, *ngFor, @if, @for) anzuwenden, ohne zusätzliche DOM-Elemente zu erzeugen. Dadurch bleibt das Layout (z. B. Flexbox/Grid) stabil.",
+        isActive: false 
+      },
+      {
+        id : 1, 
+        topic : 'ng-template', 
+        text : 'Was unterscheidet ng-template von normalen HTML-Elementen?', 
+        answer : "ng-template definiert Markup, das nicht automatisch gerendert wird. Der Inhalt erscheint nur, wenn das Template explizit instanziiert wird (z. B. über *ngIf, else oder ngTemplateOutlet).", 
+        isActive: false 
+      },
+      {
+        id : 2, 
+        topic : '@if vs ng-template', 
+        text : 'Wann ist @if sinnvoller als ng-template?', 
+        answer : "@if ist sinnvoller für einfache, einmalige Bedingungen direkt im Template. ng-template lohnt sich, wenn derselbe Block mehrfach wiederverwendet oder dynamisch an verschiedenen Stellen gerendert werden soll.", 
+        isActive: false 
+      },
+      {
+        id : 3, 
+        topic : 'ngTemplateOutlet', 
+        text : 'Was macht ngTemplateOutlet?', 
+        answer : "ngTemplateOutlet ist ein dynamischer Einsetzpunkt, mit dem ein vorhandenes ng-template an einer bestimmten Stelle gerendert wird. So lässt sich HTML wiederverwenden, ohne es zu duplizieren.", 
+        isActive: false 
+      },
+      {
+        id : 4, 
+        topic : 'ngTemplateOutlet mit $implicit', 
+        text : 'Was bedeutet $implicit im Kontext von ngTemplateOutlet?', 
+        answer : "$implicit ist der Default-Wert im context. Er kann im Template direkt über let-variable genutzt werden, ohne einen expliziten Property-Namen anzugeben. Das ist praktisch für einfache Templates mit genau einem Eingabewert.", 
+        isActive: false 
+      },
+    ];
+
+    questionID: number = -1;       // -1 as default for no Pokemon choosen
+    questionChoosen: boolean = false;
+    showAnswer: boolean = false;
+
+    selectedQuestion(id: number): void {
+      this.questions.forEach(el => el.isActive = false);
+      this.showAnswer = false;
+      if (this.questionID === id) {
+        this.questionChoosen = false;
+        this.questionID = -1;
+      } else {
+        this.questionChoosen = true;
+        this.questionID = id;
+        this.questions[this.questionID].isActive = true;
+      }
+    }
+
 }
