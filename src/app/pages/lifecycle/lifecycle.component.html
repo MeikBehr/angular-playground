@@ -1,8 +1,8 @@
 <section class="lifecycle">
 
     <aside class="side-nav" role="navigation">
-        <a href="lifecycle/#ngOnInit">ngOnInit</a>
         <a href="lifecycle/#ngOnChanges">ngOnChanges</a>
+        <a href="lifecycle/#ngOnInit">ngOnInit</a>
         <a href="lifecycle/#ngAfterViewInit">ngAfterViewInit</a>
         <a href="lifecycle/#ngOnDestroy">ngOnDestroy</a>
         <a href="lifecycle/#ngOthers">andere-ng-lifecycle</a>
@@ -14,18 +14,30 @@
 
         <main class="content">
 
-            <h1>Lifecycle Hooks</h1>
-            <p>Angular-Komponenten haben einen Lebenszyklus, den wir mit speziellen "Hooks" (Schnittstellen) anzapfen können, um Logik zu bestimmten Zeitpunkten auszuführen:</p>
-            <ul>
-                <li><strong>ngOnInit</strong>: Der wichtigste Hook. Er wird einmalig aufgerufen, nachdem die Komponente initialisiert wurde. Hier platziert man typischerweise API-Aufrufe oder Variablen-Setups.</li>
-                <li><strong>ngOnChanges</strong>: Wird immer dann aufgerufen, wenn sich eine Eingabeeigenschaft (<code>&#64;Input</code>) ändert. Ideal, um auf Datenänderungen von außen zu reagieren.</li>
-                <li><strong>ngAfterViewInit</strong>: Wird gefeuert, sobald die HTML-Ansicht (das Template) der Komponente fertig geladen ist. Wichtig, wenn man direkt auf DOM-Elemente zugreifen muss.</li>
-                <li><strong>ngOnDestroy</strong>: Der "Aufräum-Dienst". Er wird direkt vor dem Zerstören der Komponente aufgerufen, um z.B. Timer zu stoppen oder Datenverbindungen zu trennen (Memory-Leaks verhindern).</li>
-            </ul>
+        <h1>Lifecycle Hooks</h1>
+        <p>Angular-Komponenten durchlaufen einen definierten Lebenszyklus, den wir über "Hooks" (Schnittstellen) anzapfen, um Logik zu präzisen Zeitpunkten auszuführen.</p>
+
+        <p>Wichtig : Logik gehört primär in Hooks, nicht in den <code>constructor()</code>. Während der Constructor lediglich die Klasse instanziiert, garantieren erst die Hooks, dass die Angular-Infrastruktur (wie <code>&#64;Input</code>-Bindungen oder das Template) bereitsteht. Ein Zugriff auf Daten im Constructor führt oft zu 'undefined'-Fehlern. Diese Hooks sollten stets außerhalb des <code>constructor()</code> angewendet werden, da der <code>constructor()</code> vor dem Hook aufgerufen wird. Ansonsten läuft man Gefahr, dass die Komponente noch nicht vollständig Erschaffen wurde und der <code>constructor</code> auf eine halbfertige Instanz zugreift.</p>
+
+        <p>Die vier praxisrelevantesten Lifecycle Hooks sind:</p>
+        <ul>
+            <li>
+                <strong>ngOnChanges</strong>: Der erste Hook im Datenfluss. Er wird immer dann aufgerufen, wenn <code>&#64;Input</code>-Eigenschaften initialisiert oder von der Eltern-Komponente aktualisiert werden. Ideal, um sofort auf Datenänderungen von außen zu reagieren.
+            </li>
+            <li>
+                <strong>ngOnInit</strong>: Wird einmalig nach dem ersten <code>ngOnChanges</code> aufgerufen, sobald die Komponente stabil initialisiert ist. Dies ist der Standard-Ort für API-Aufrufe, Variablen-Setups oder das Abonnieren von Datenströmen.
+            </li>
+            <li>
+                <strong>ngAfterViewInit</strong>: Dieser Hook feuert, sobald das Template (HTML) und alle Kind-Komponenten vollständig gerendert wurden. Es ist der früheste Zeitpunkt, um sicher auf DOM-Elemente oder ViewChild-Referenzen zuzugreifen.
+            </li>
+            <li>
+                <strong>ngOnDestroy</strong>: Der „Aufräum-Dienst“ der Komponente. Er wird unmittelbar vor dem Zerstören aufgerufen, um Ressourcen freizugeben, Timer zu stoppen und offene Verbindungen zu trennen, was kritisch ist, um Memory Leaks zu verhindern.
+            </li>
+        </ul>
             <br>
 
-            <section id="ngOnInit">
-                <h2>ngOnInit</h2>
+            <section id="ngOnChanges">
+                <h2>ngOnChanges</h2>
                 <article>
                     <p>bla.</p>
                     <p>blu</p>
@@ -40,17 +52,18 @@
                 </article>
             </section>
 
-            <section id="ngOnChanges">
-                <h2>ngOnChanges</h2>
+
+            <section id="ngOnInit">
+                <h2>ngOnInit</h2>
                 <article>
-                    <p>bla.</p>
-                    <p>blu</p>
-                    <p>blub.</p>
+                    <p><strong>Wichtig : </strong>Um <code>ngOnInit</code> nutzen zu können, muss man das <code>OnInit</code>-Interface im TS importieren: <code>import &#123; OnInit &#125; from '&#64;angular/core';</code> und im TS beim <code>export class</code> implementieren: <code>implements OnInit</code></p>
+                    <p>Der Code im der <code>ngOnInit()</code>-Funktion wird dabei nur ein einziges Mal ausgeführt - wenn die Componente initialisiert wird! Hierbei wird <code>ngOnInit()</code> normaler Weise nach <code>ngOnChanges()</code> ausgeführt. Wenn allerdings keine template-bounds inputs da sind, ist <code>ngOnInit()</code> als erstes an der Reihe. </p>
+                    <p>Im Klartext : <code>ngOnChanges</code> ist der erste Hook im Datenfluss sofern <code>&#64;Input</code>-Bindings existieren.</p>
+                    <p><strong>Wichtig : </strong>Was ich per <code>ngOnInit()</code> starte muss ich per <code>ngOnDestroy()</code> stoppen!</p>
                     <div class="assignment-container">
-                        <div class="flex-row">
-                        </div>
+                        <h4>Hier ein kleiner Beispielcode:</h4>
                         <div class="showCode">
-                            <pre [innerText]=""></pre>
+                            <pre [innerText]="ngOnInitTemplate"></pre>
                         </div>
                     </div>
                 </article>
@@ -72,18 +85,26 @@
                 </article>
             </section> 
 
-
             <section id="ngOnDestroy">
                 <h2>ngOnDestroy</h2>
                 <article>
-                    <p>bla.</p>
-                    <p>blu</p>
-                    <p>blub.</p>
+                    <p><strong>Wichtig : </strong> Um <code>ngOnDestroy()</code> nutzen zu können, muss das Interface <code>OnDestroy</code> importiert und in der Component implementiert werden: <code>implements OnDestroy</code>.</p>
+                    <p>Der Code innerhalb von <code>ngOnDestroy()</code> wird genau einmal ausgeführt – unmittelbar bevor Angular die Komponente kontrolliert zerstört.</p>
+                    <p>Im Klartext: <code>ngOnDestroy()</code> ist der zentrale Ort für allen notwendigen <strong>Cleanup-Code</strong> einer Komponente.</p>
+                    <ul>
+                        <li>Abbrechen von Timern (<code>setInterval</code>, <code>setTimeout</code>)</li>
+                        <li>Unsubscriben von Observables</li>
+                        <li>Aufräumen von Ressourcen oder Event-Listenern</li>
+                    </ul>
+                    <p><strong>Merksatz : </strong></p>
+                    <p>Alles, was in <code>ngOnInit()</code> gestartet wird, sollte in <code>ngOnDestroy()</code> wieder sauber beendet werden.</p>
+                    <br>
+                    <p><strong>Hinweis : </strong> <code>ngOnDestroy()</code> wird zuverlässig ausgeführt, wenn Angular die Komponente selbst zerstört (z. B. beim Routing oder durch <code>*ngIf</code>/<code>&#64;if</code>). Bei Browser-Reloads oder dem Schließen des Tabs ist die Ausführung jedoch nicht garantiert.</p>
                     <div class="assignment-container">
                         <div class="flex-row">
                         </div>
                         <div class="showCode">
-                            <pre [innerText]=""></pre>
+                            <pre [innerText]="onOnDestroyTemplate"></pre>
                         </div>
                     </div>
                 </article>

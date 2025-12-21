@@ -76,6 +76,10 @@ main {
     box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 3px, rgba(0, 0, 0, 0.23) 4px 4px 4px;
 }
 
+h2 {
+    padding-bottom: 4px;
+}
+
 ul {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -115,13 +119,7 @@ ul {
 #ngOnInit {
     & .assignment-container {
         display: flex;
-        flex-direction: row;
-    }
-
-    & .assignmentCode {
-        display: flex;
         flex-direction: column;
-        padding-top: 12px;
     }
 
     & .flex-row {

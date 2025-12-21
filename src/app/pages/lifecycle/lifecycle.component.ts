@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -9,17 +9,78 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './lifecycle.component.html',
   styleUrl: './lifecycle.component.scss'
 })
-export class LifecycleComponent {
+
+export class LifecycleComponent implements OnInit {
+
+  count: number = 0;
+  private intervalId!: number;
+
+  // ngOnInit Hook, this code runs when the component is initialized
+  ngOnInit(): void {
+    this.startCounter();
+  }
+
+  startCounter() {
+    this.intervalId = window.setInterval(() => {
+      if (this.count <= 5) {
+        console.log('ngOnInit:' + this.count++);
+      }
+    }, 1000);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
+    console.log('Interval cleared – component destroyed');
+  }
 
 
+  // ngOnInit
+ngOnInitTemplate: string = `
+import { OnInit } from '@angular/core';
+
+export class LifecycleComponent implements OnInit {
+  count: number = 0;
+  private intervalId!: number;
+
+  // ngOnInit Hook, this code runs when the component is initialized
+  ngOnInit(): void {
+    this.startCounter();
+  }
+
+  startCounter() {
+    this.intervalId = window.setInterval(() => {
+      if (this.count <= 5) {
+        console.log('ngOnInit:' + this.count++);
+      }
+    }, 1000);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
+    console.log('Interval cleared – component destroyed');
+  }  
+`;
 
 
+  // ngOnDestroy
+onOnDestroyTemplate: string = `
+import { OnInit, OnDestroy } from '@angular/core';
 
+export class LifecycleComponent implements OnInit, OnDestroy {
+  intervalId!: number;
 
+  ngOnInit(): void {
+    this.intervalId = window.setInterval(() => {
+      console.log('running...');
+    }, 1000);
+  }
 
-
-
-
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
+    console.log('Interval cleared – component destroyed');
+  }
+}
+`;
 
 
 
